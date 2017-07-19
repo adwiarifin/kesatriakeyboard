@@ -99,4 +99,16 @@ $(document).ready(function($) {
         console.log(err);
     }
 
+    /* ---------------------------------------------------------------------- */
+    /*  Preload Image
+    /* ---------------------------------------------------------------------- */
+    var cl = cloudinary.Cloudinary.new({cloud_name: "duy7bgnk8"}); 
+    cl.responsive();
+
+    /* ---------------------------------------------------------------------- */
+    /*  Auto Close Navbar
+    /* ---------------------------------------------------------------------- */
+    $('.navbar-collapse a').click(function(){
+        $(".navbar-collapse").collapse('hide');
+    });
 });
