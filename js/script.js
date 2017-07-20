@@ -79,28 +79,7 @@ $(document).ready(function($) {
     });
 
     /* ---------------------------------------------------------------------- */
-    /*	Contact Map
-    /* ---------------------------------------------------------------------- */
-    var contact = {"lat":"-8.1276157", "lon":"112.6798475"}; //Change a map coordinate here!
-
-    try {
-        var mapContainer = $('#map');
-        mapContainer.gmap3({
-            action: 'addMarker',
-            latLng: [contact.lat, contact.lon],
-            map:{
-                center: [contact.lat, contact.lon],
-                zoom: 14
-                },
-            },
-            {action: 'setOptions', args:[{scrollwheel:true}]}
-        );
-    } catch(err) {
-        console.log(err);
-    }
-
-    /* ---------------------------------------------------------------------- */
-    /*  Preload Image
+    /*  Cloudinary Responsive Image
     /* ---------------------------------------------------------------------- */
     var cl = cloudinary.Cloudinary.new({cloud_name: "duy7bgnk8"}); 
     cl.responsive();
@@ -111,4 +90,24 @@ $(document).ready(function($) {
     $('.navbar-collapse a').click(function(){
         $(".navbar-collapse").collapse('hide');
     });
+
+    /* ---------------------------------------------------------------------- */
+    /*  Animations init
+    /* ---------------------------------------------------------------------- */
+    new WOW().init();
 });
+
+/* ---------------------------------------------------------------------- */
+/*  Contact Map
+/* ---------------------------------------------------------------------- */
+function initMap() {
+    var loc = {lat: -8.1276157, lng: 112.6798475};
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 10,
+        center: loc
+    });
+    var marker = new google.maps.Marker({
+        position: loc,
+        map: map
+    });
+}
