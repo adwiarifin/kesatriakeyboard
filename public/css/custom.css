@@ -56,3 +56,12 @@
   height: 90%;
   position: absolute;
 }
+
+.footer-dark {
+  background-color: #151f20;
+}
+
+.footer-dark .copyright,
+.footer-dark ul a:not(.btn) {
+  color: #FFFFFF !important;
+}

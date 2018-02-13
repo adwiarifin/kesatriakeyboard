@@ -401,7 +401,7 @@
             </div>
         </div>
 	</div>
-    <footer class="footer">
+    <footer class="footer footer-dark">
         <div class="container">
             <div class="row">
                 <nav class="footer-nav">
