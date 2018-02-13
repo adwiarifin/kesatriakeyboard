@@ -100,10 +100,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 ml-auto mr-auto">
-                            <h2 class="title">Let's talk product</h2>
-                            <h5 class="description">This is the paragraph where you can write more details about your product. Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious, otherwise he wouldn't scroll to get here. Add a button if you want the user to see more.</h5>
-                            <br>
-                            <a href="#paper-kit" class="btn btn-danger btn-round">See Details</a>
+                            <h2 class="title">Who we are?</h2>
+                            <h5 class="description">A highly focused software developer with seven years’ experience in a variety of development and engineering positions. Organised, methodical and a keen eye for detail results in solid coding and trustworthy software programmes. Understanding client requirements and communicating the progress of projects are core values in achieving long lasting business relationships.</h5>
+                            <!--br>
+                            <a href="#paper-kit" class="btn btn-danger btn-round">See Details</a-->
                         </div>
                     </div>
                     <br/><br/>
@@ -116,7 +116,7 @@
                                 <div class="description">
                                     <h4 class="info-title">Beautiful Gallery</h4>
                                     <p class="description">Spend your time generating new ideas. You don't have to think of implementing.</p>
-                                    <a href="#pkp" class="btn btn-link btn-danger">See more</a>
+                                    <!--a href="#pkp" class="btn btn-link btn-danger">See more</a-->
                                 </div>
                             </div>
                         </div>
@@ -128,7 +128,7 @@
                                 <div class="description">
                                     <h4 class="info-title">New Ideas</h4>
                                     <p>Larger, yet dramatically thinner. More powerful, but remarkably power efficient.</p>
-                                    <a href="#pkp" class="btn btn-link btn-danger">See more</a>
+                                    <!--a href="#pkp" class="btn btn-link btn-danger">See more</a-->
                                 </div>
                             </div>
                         </div>
@@ -140,7 +140,7 @@
                                 <div class="description">
                                     <h4 class="info-title">Statistics</h4>
                                     <p>Choose from a veriety of many colors resembling sugar paper pastels.</p>
-                                    <a href="#pkp" class="btn btn-link btn-danger">See more</a>
+                                    <!--a href="#pkp" class="btn btn-link btn-danger">See more</a-->
                                 </div>
                             </div>
                         </div>
@@ -152,7 +152,7 @@
                                 <div class="description">
                                     <h4 class="info-title">Delightful design</h4>
                                     <p>Find unique and handmade delightful designs related items directly from our sellers.</p>
-                                    <a href="#pkp" class="btn btn-link btn-danger">See more</a>
+                                    <!--a href="#pkp" class="btn btn-link btn-danger">See more</a-->
                                 </div>
                             </div>
                         </div>
@@ -337,9 +337,9 @@
                                                     </div>
                                                     <div class="description">
                                                         <h5 class="info-title">Give us a call</h5>
-                                                        <p> Michael Jordan<br>
-                                                            +40 762 321 762<br>
-                                                            Mon - Fri, 8:00-22:00
+                                                        <p> Adwi Arifin<br>
+                                                            +62857 555 28 252<br>
+                                                            Mon - Fri, 8:00-16:00
                                                         </p>
                                                     </div>
                                                 </div>
@@ -351,8 +351,9 @@
                                                     </div>
                                                     <div class="description">
                                                         <h5 class="info-title">Find us at the office</h5>
-                                                        <p> Bld Mihail Kogalniceanu<br>
-                                                            7652 Bucharest
+                                                        <p> Perumahan Turen Permai<br>
+                                                            Blok G-03, Talangsuko<br>
+                                                            Turen, Malang
                                                         </p>
                                                     </div>
                                                 </div>
