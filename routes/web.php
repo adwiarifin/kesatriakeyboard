@@ -16,11 +16,11 @@ Route::get('/', function () {
 });
 
 Route::get('/front', function () {
-    return view('front');
+    return view('front.master');
 });
 
-Route::get('/back', function () {
-    return view('back');
+Route::get('/admin', function () {
+    return view('admin.default');
 });
 
 Route::get('/login', function () {
