@@ -12,5 +12,17 @@
 */
 
 Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/front', function () {
     return view('front');
+});
+
+Route::get('/back', function () {
+    return view('back');
+});
+
+Route::get('/login', function () {
+    return view('ftp_login(ftp_stream, username, password)');
 });
