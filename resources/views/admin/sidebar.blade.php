@@ -53,12 +53,6 @@
                             <p>Notifications</p>
                         </a>
                     </li>
-                    <li class="nav-item active active-pro">
-                        <a class="nav-link active" href="upgrade.html">
-                            <i class="nc-icon nc-alien-33"></i>
-                            <p>Upgrade to PRO</p>
-                        </a>
-                    </li>
                 </ul>
             </div>
         </div>

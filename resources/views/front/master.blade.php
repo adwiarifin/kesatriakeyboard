@@ -38,9 +38,8 @@
             <div class="row">
                 <nav class="footer-nav">
                     <ul>
-                        <li><a href="http://www.creative-tim.com">Creative Tim</a></li>
-                        <li><a href="http://blog.creative-tim.com">Blog</a></li>
-                        <li><a href="http://www.creative-tim.com/license">Licenses</a></li>
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/') }}">Blog</a></li>
                     </ul>
                 </nav>
                 <div class="credits ml-auto">
