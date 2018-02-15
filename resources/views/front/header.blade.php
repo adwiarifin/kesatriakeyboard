@@ -4,7 +4,7 @@
     			<div class="container">
     				<div class="title-brand">
                         <!--img src="{{ url('img/kesatria_logo.png') }}" /-->
-    					<h1 class="presentation-title">Kesatria Keyboard </h1>
+    					<h1 class="presentation-title">{{ App\Section::getValue('title') }}</h1>
     					<div class="fog-low">
     						<img src="{{ url('img/fog-low.png') }}" alt="">
     					</div>
@@ -13,7 +13,7 @@
     					</div>
     				</div>
 
-    				<h2 class="presentation-subtitle text-center">Coding Expert in web and mobile development</h2>
+    				<h2 class="presentation-subtitle text-center">{{ App\Section::getValue('subtitle') }}</h2>
     			</div>
     		</div>
             <div class="moving-clouds" style="background-image: url('{{ url('img/clouds.png') }}'); ">

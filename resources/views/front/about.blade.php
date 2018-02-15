@@ -3,7 +3,7 @@
                     <div class="row">
                         <div class="col-md-8 ml-auto mr-auto">
                             <h2 class="title">Who we are?</h2>
-                            <h5 class="description">A highly focused software developer with seven years’ experience in a variety of development and engineering positions. Organised, methodical and a keen eye for detail results in solid coding and trustworthy software programmes. Understanding client requirements and communicating the progress of projects are core values in achieving long lasting business relationships.</h5>
+                            <h5 class="description">{{ App\Section::getValue('who_we_are') }}</h5>
                             <!--br>
                                         <a href="#paper-kit" class="btn btn-danger btn-round">See Details</a-->
                         </div>

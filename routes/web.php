@@ -24,5 +24,13 @@ Route::get('/admin', function () {
 });
 
 Route::get('/login', function () {
-    return view('ftp_login(ftp_stream, username, password)');
+    return view('auth.login');
+})->name('login');
+
+Route::prefix('/admin')->group(function() {
+	Route::middleware(['auth'])->group(function() {
+		Route::get('/sections', function(){
+			echo 'Hello World';
+		});
+	});
 });
