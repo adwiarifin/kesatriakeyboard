@@ -11,13 +11,13 @@
                     </a>
                 </div>
                 <ul class="nav">
-                    <li class="nav-item active">
+                    <li class="nav-item {!! (str_contains(url()->current(), '/dashboard')) ? 'active' : '' !!}">
                         <a class="nav-link" href="{{ url('/admin/dashboard') }}">
                             <i class="nc-icon nc-chart-pie-36"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="nav-item {!! (str_contains(url()->current(), '/sections')) ? 'active' : '' !!}">
                         <a class="nav-link" href="{{ url('/admin/sections') }}">
                             <i class="nc-icon nc-layout-11"></i>
                             <p>Sections</p>
