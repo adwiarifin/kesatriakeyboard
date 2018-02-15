@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="description">
                                     <h4 class="info-title">Beautiful Gallery</h4>
-                                    <p class="description">Spend your time generating new ideas. You don't have to think of implementing.</p>
+                                    <p>{{ App\Section::getValue('who_we_are_1') }}</p>
                                     <!--a href="#pkp" class="btn btn-link btn-danger">See more</a-->
                                 </div>
                             </div>
@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="description">
                                     <h4 class="info-title">New Ideas</h4>
-                                    <p>Larger, yet dramatically thinner. More powerful, but remarkably power efficient.</p>
+                                    <p>{{ App\Section::getValue('who_we_are_2') }}</p>
                                     <!--a href="#pkp" class="btn btn-link btn-danger">See more</a-->
                                 </div>
                             </div>
@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="description">
                                     <h4 class="info-title">Statistics</h4>
-                                    <p>Choose from a veriety of many colors resembling sugar paper pastels.</p>
+                                    <p>{{ App\Section::getValue('who_we_are_3') }}</p>
                                     <!--a href="#pkp" class="btn btn-link btn-danger">See more</a-->
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="description">
                                     <h4 class="info-title">Delightful design</h4>
-                                    <p>Find unique and handmade delightful designs related items directly from our sellers.</p>
+                                    <p>{{ App\Section::getValue('who_we_are_4') }}</p>
                                     <!--a href="#pkp" class="btn btn-link btn-danger">See more</a-->
                                 </div>
                             </div>
