@@ -13,37 +13,14 @@
 
 use Illuminate\Http\Request;
 
-Route::get('/', function () {
-    return redirect('/front');
-});
-
-Route::get('/front', 'FrontController@index');
+Route::get('/', 'FrontController@index');
 
 /////////// AUTH /////////////////
 
 Route::prefix('/auth')->group(function(){
-	Route::get('/login', function () {
-		if (Auth::check()) {
-	        return redirect('/admin/dashboard');
-	    }
-	    return view('auth.login');
-	})->name('login');
-
-	Route::post('/login', function(Request $request) {
-		$email = $request->input('email');
-        $password = $request->input('password');
-
-        if (Auth::attempt(['email' => $email, 'password' => $password])) {
-            return redirect('/admin/dashboard');
-        }
-        
-        return "Login Error";
-	});
-
-	Route::get('/logout', function() {
-		Auth::logout();
-        return redirect('/auth/login');
-	});
+	Route::get('/login', 'AuthController@getLogin')->name('login');
+	Route::post('/login', 'AuthController@postLogin');
+	Route::get('/logout', 'AuthController@getLogout');
 });
 
 /////////// AUTH END /////////////////
@@ -52,6 +29,7 @@ Route::prefix('/auth')->group(function(){
 
 Route::prefix('/admin')->group(function() {
 	Route::middleware(['auth'])->group(function() {
+		Route::get('/', 'AdminController@index');
 		Route::get('/dashboard', 'AdminController@dashboard');
 
 		Route::get('/sections', 'SectionController@index');
