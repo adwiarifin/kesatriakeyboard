@@ -3,8 +3,8 @@
                     <div class="row">
                         <div class="col-md-8 ml-auto mr-auto text-center">
                             <h6 class="text-muted">Our work</h6>
-                            <h2 class="title">Some of Our Awesome Products - 2</h2>
-                            <h5 class="description">This is the paragraph where you can write more details about your projects. Keep you user engaged by providing meaningful information.</h5>
+                            <h2 class="title">Some of Our Awesome Products</h2>
+                            <h5 class="description">{{ App\Section::getValue('our_products') }}</h5>
                         </div>
                     </div>
                     <div class="space-top"></div>
@@ -64,6 +64,11 @@
                                     </p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <a href="{{ url('/works') }}" class="btn btn-danger btn-round" target="_blank">View All Our Works</a>
                         </div>
                     </div>
                 </div>

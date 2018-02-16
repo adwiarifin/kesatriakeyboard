@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="{{ url('img/favicon.ico') }}">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ url('img/apple-icon.png') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <title>{{ App\Section::getValue('title') }} - {{ App\Section::getValue('subtitle') }}</title>

@@ -17,8 +17,7 @@
                                                 </div>
                                                 <div class="description">
                                                     <h5 class="info-title">Give us a call</h5>
-                                                    <p> Adwi Arifin<br> +62857 555 28 252<br> Mon - Fri, 8:00-16:00
-                                                    </p>
+                                                    <p>{!! nl2br(App\Section::getValue('contact')) !!}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -29,8 +28,7 @@
                                                 </div>
                                                 <div class="description">
                                                     <h5 class="info-title">Find us at the office</h5>
-                                                    <p> Perumahan Turen Permai<br> Blok G-03, Talangsuko<br> Turen, Malang
-                                                    </p>
+                                                    <p>{!! nl2br(App\Section::getValue('address')) !!}</p>
                                                 </div>
                                             </div>
                                         </div>

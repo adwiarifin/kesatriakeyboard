@@ -23,6 +23,12 @@
                             <p>Sections</p>
                         </a>
                     </li>
+                    <li class="nav-item {!! (str_contains(url()->current(), '/posts')) ? 'active' : '' !!}">
+                        <a class="nav-link" href="{{ url('/admin/posts') }}">
+                            <i class="nc-icon nc-paper"></i>
+                            <p>Posts</p>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

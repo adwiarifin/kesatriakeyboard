@@ -1,19 +1,19 @@
 Dashboard
-Pages
-- title
-- subtitle
-- who we are
--- point 1
--- point 2
--- point 3
--- point 4
-- our products
-- contact
-- address
-- social
--- twitter
--- facebook
--- instagram
+[OK] Sectons
+[OK] - title
+[OK] - subtitle
+[OK] - who we are
+[OK] -- point 1
+[OK] -- point 2
+[OK] -- point 3
+[OK] -- point 4
+[OK] - our products
+[OK] - contact
+[OK] - address
+[OK] - social
+[OK] -- twitter
+[OK] -- facebook
+[OK] -- instagram
 Users
 - Roles
 -- subscriber
@@ -28,3 +28,6 @@ Works
 Messages
 Statistics
 Logs
+
+
+Blog Publish - use flag

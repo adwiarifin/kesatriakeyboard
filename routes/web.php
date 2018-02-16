@@ -13,53 +13,36 @@
 
 use Illuminate\Http\Request;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/front', function () {
-    return view('front.master');
-});
-
-Route::get('/admin', function () {
-    return view('admin.default');
-});
+Route::get('/', 'FrontController@index');
 
 /////////// AUTH /////////////////
 
 Route::prefix('/auth')->group(function(){
-	Route::get('/login', function () {
-		if (Auth::check()) {
-	        return redirect('/admin/dashboard');
-	    }
-	    return view('auth.login');
-	})->name('login');
-
-	Route::post('/login', function(Request $request) {
-		$email = $request->input('email');
-        $password = $request->input('password');
-
-        if (Auth::attempt(['email' => $email, 'password' => $password])) {
-            return redirect('/admin/dashboard');
-        }
-        
-        return "Login Error";
-	});
-
-	Route::get('/logout', function() {
-		Auth::logout();
-        return redirect('/auth/login');
-	});
+	Route::get('/login', 'AuthController@getLogin')->name('login');
+	Route::post('/login', 'AuthController@postLogin');
+	Route::get('/logout', 'AuthController@getLogout');
 });
 
-/////////// AUTH /////////////////
+/////////// AUTH END /////////////////
+
+/////////// ADMIN /////////////////
 
 Route::prefix('/admin')->group(function() {
 	Route::middleware(['auth'])->group(function() {
+		Route::get('/', 'AdminController@index');
 		Route::get('/dashboard', 'AdminController@dashboard');
 
 		Route::get('/sections', 'SectionController@index');
 		Route::get('/sections/{section}/edit', 'SectionController@edit');
 		Route::patch('/sections/{section}', 'SectionController@update');
+
+		Route::get('/posts', 'PostController@index');
+		Route::get('/posts/create', 'PostController@create');
+		Route::post('/posts/create', 'PostController@store');
+		Route::get('/posts/{post}', 'PostController@edit');
+		Route::patch('/posts/{post}', 'PostController@update');
+		Route::delete('/posts/{post}', 'PostController@destroy');
 	});
 });
+
+/////////// ADMIN END /////////////////

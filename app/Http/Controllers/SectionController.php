@@ -24,7 +24,7 @@ class SectionController extends Controller
     	$section->value = $request->value;
     	$section->update();
 
-    	session()->flash('message', 'Page has been updated');
+    	session()->flash('message', 'Section '.$section->key.' has been updated');
 
         return redirect('/admin/sections');
     }
