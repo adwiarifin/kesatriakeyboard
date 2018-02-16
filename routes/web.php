@@ -35,6 +35,13 @@ Route::prefix('/admin')->group(function() {
 		Route::get('/sections', 'SectionController@index');
 		Route::get('/sections/{section}/edit', 'SectionController@edit');
 		Route::patch('/sections/{section}', 'SectionController@update');
+
+		Route::get('/posts', 'PostController@index');
+		Route::get('/posts/create', 'PostController@create');
+		Route::post('/posts/create', 'PostController@store');
+		Route::get('/posts/{post}', 'PostController@edit');
+		Route::patch('/posts/{post}', 'PostController@update');
+		Route::delete('/posts/{post}', 'PostController@destroy');
 	});
 });
 

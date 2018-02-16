@@ -28,3 +28,6 @@ Works
 Messages
 Statistics
 Logs
+
+
+Blog Publish - use flag
