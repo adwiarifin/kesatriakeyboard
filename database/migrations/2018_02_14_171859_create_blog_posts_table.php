@@ -17,6 +17,7 @@ class CreateBlogPostsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('slug');
+            $table->string('image');
             $table->text('body');
             $table->integer('category_id')->references('id')->on('blog_categories');
             $table->integer('user_id')->references('id')->on('users');

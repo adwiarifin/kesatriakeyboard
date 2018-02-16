@@ -56,14 +56,16 @@ class SectionsTableSeeder extends Seeder
         $section->key = 'contact';
         $section->value = '<p>Adwi Arifin<br>
         +62857 555 28 252<br>
-        Mon - Fri, 8:00-16:00</p>';
+        Mon - Fri, 8:00-16:00<br>
+        </p>';
         $section->save();
 
         $section = new Section();
         $section->key = 'address';
         $section->value = '<p>Perumahan Turen Permai<br>
         Blok G-03, Talangsuko<br>
-        Turen, Malang</p>';
+        Turen, Malang<br>
+        </p>';
         $section->save();
 
         $section = new Section();

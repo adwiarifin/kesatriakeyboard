@@ -14,16 +14,10 @@
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/front');
 });
 
-Route::get('/front', function () {
-    return view('front.master');
-});
-
-Route::get('/admin', function () {
-    return view('admin.default');
-});
+Route::get('/front', 'FrontController@index');
 
 /////////// AUTH /////////////////
 
@@ -52,7 +46,9 @@ Route::prefix('/auth')->group(function(){
 	});
 });
 
-/////////// AUTH /////////////////
+/////////// AUTH END /////////////////
+
+/////////// ADMIN /////////////////
 
 Route::prefix('/admin')->group(function() {
 	Route::middleware(['auth'])->group(function() {
@@ -63,3 +59,5 @@ Route::prefix('/admin')->group(function() {
 		Route::patch('/sections/{section}', 'SectionController@update');
 	});
 });
+
+/////////// ADMIN END /////////////////
