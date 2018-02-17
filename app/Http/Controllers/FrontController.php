@@ -15,6 +15,12 @@ class FrontController extends Controller
     	{
     		$posts = $posts->random(3);
     	}
-    	return view('front.master', compact('posts'));
+    	return view('front.landing.index', compact('posts'));
+    }
+
+    public function blog($slug)
+    {
+    	$post = Post::where('slug', $slug)->first();
+    	return view('front.blog.index', compact('post'));
     }
 }
