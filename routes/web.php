@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 
 Route::get('/', 'FrontController@index');
 Route::get('/blog/{slug}', 'FrontController@blog');
+Route::get('/portfolio/{slug}', 'FrontController@portfolio');
 
 /////////// AUTH /////////////////
 

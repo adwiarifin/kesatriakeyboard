@@ -23,12 +23,12 @@ class FrontController extends Controller
     public function blog($slug)
     {
     	$post = Post::where('slug', $slug)->first();
-    	return view('front.blog.index', compact('post'));
+    	return view('front.blog.show', compact('post'));
     }
 
     public function portfolio($slug)
     {
         $work = Work::where('slug', $slug)->first();
-        return view('front.portfolio.index', compact('work'));
+        return view('front.portfolio.show', compact('work'));
     }
 }
