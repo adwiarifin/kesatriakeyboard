@@ -1,6 +1,6 @@
 @extends('admin.master')
 
-@section('title') Section @stop
+@section('title') Sections @stop
 
 @section('content')
                 <div class="row">

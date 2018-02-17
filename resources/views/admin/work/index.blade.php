@@ -1,10 +1,10 @@
 @extends('admin.master')
 
-@section('title') Posts &nbsp; @stop
+@section('title') Works &nbsp; @stop
 
 @section('toolbar')
                         <li>
-                            <a href="{{ url('/admin/posts/create') }}" class="btn btn-sm btn-default btn-fill">
+                            <a href="{{ url('/admin/works/create') }}" class="btn btn-sm btn-default btn-fill">
                                 <i class="fa fa-plus-square"></i> Create
                             </a>
                         </li>
@@ -18,23 +18,23 @@
                                 <table class="table table-hover table-striped">
                                     <thead>
                                         <th>ID</th>
-                                        <th>Title</th>
-                                        <th>Author</th>
-                                        <th>Category</th>
+                                        <th>Name</th>
+                                        <th>Platform</th>
+                                        <th>Framework</th>
                                         <th>Option</th>
                                     </thead>
                                     <tbody>
-                                        @foreach($posts as $post)
+                                        @foreach($works as $work)
                                         <tr>
-                                            <td>{{ $post->id }} </td>
-                                            <td>{{ $post->title }}</td>
-                                            <td>{{ $post->user->name }}</td>
-                                            <td>{{ $post->category->name }}</td>
+                                            <td>{{ $work->id }} </td>
+                                            <td>{{ $work->name }}</td>
+                                            <td>{{ $work->platform }}</td>
+                                            <td>{{ $work->framework }}</td>
                                             <td>
-                                                <form method="POST" action="{{ url('/admin/posts/'.$post->id) }}" class="form-inline">
+                                                <form method="POST" action="{{ url('/admin/works/'.$work->id) }}" class="form-inline">
                                                     {{ csrf_field() }} {{ method_field('delete') }}
-                                                    <a href="{{ url('/blog/'.$post->slug) }}" class="btn btn-sm btn-fill btn-info"><i class="fa fa-eye"></i> View</a>&nbsp;
-                                                    <a href="{{ url('/admin/posts/'.$post->id) }}" class="btn btn-sm btn-fill btn-warning"><i class="fa fa-edit"></i> Edit</a>&nbsp;
+                                                    <a href="{{ url('/portfolio/'.$work->slug) }}" class="btn btn-sm btn-fill btn-info"><i class="fa fa-eye"></i> View</a>&nbsp;
+                                                    <a href="{{ url('/admin/works/'.$work->id) }}" class="btn btn-sm btn-fill btn-warning"><i class="fa fa-edit"></i> Edit</a>&nbsp;
                                                     <button type="submit" name="submit" class="btn btn-sm btn-fill btn-danger" onclick="return confirmDelete()"><i class="fa fa-trash"></i> Delete</button>
                                                 </form>
                                             </td>
@@ -46,9 +46,9 @@
                         </div>
                     </div>
 
-                    @if($posts instanceof \Illuminate\Pagination\LengthAwarePaginator)
+                    @if($works instanceof \Illuminate\Pagination\LengthAwarePaginator)
                     <div class="col-md-12 text-center"> 
-                        {{ $posts->links() }}
+                        {{ $works->links() }}
                     </div>
                     @endif
                 </div>

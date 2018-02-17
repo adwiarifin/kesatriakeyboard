@@ -61,5 +61,10 @@
                             @endforeach
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <a href="{{ url('/blog') }}" class="btn btn-danger btn-round">Go to Blog</a>
+                        </div>
+                    </div>
                 </div>
             </div>

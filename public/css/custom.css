@@ -149,6 +149,10 @@
     border: 3px solid #FFFFFF;
 }
 
+.media .avatar img {
+    width: 100%;
+}
+
 .media .media-heading {
     color: #403D39;
     display: inline-block;
@@ -165,4 +169,8 @@
     min-height: 430px;
     width: 100%;
     margin-bottom: 25px;
+}
+
+.article-content p {
+  text-align: justify;
 }

@@ -17,7 +17,10 @@ class CreateWorksTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug');
-            $table->string('description');
+            $table->string('image')->default('');
+            $table->string('platform');
+            $table->string('framework')->default('-');
+            $table->text('description');
             $table->timestamps();
         });
     }

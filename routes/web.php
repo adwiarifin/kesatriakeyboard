@@ -14,7 +14,10 @@
 use Illuminate\Http\Request;
 
 Route::get('/', 'FrontController@index');
+Route::get('/blog', 'FrontController@blogList');
 Route::get('/blog/{slug}', 'FrontController@blog');
+Route::get('/portfolio', 'FrontController@portfolioList');
+Route::get('/portfolio/{slug}', 'FrontController@portfolio');
 
 /////////// AUTH /////////////////
 
@@ -23,8 +26,6 @@ Route::prefix('/auth')->group(function(){
 	Route::post('/login', 'AuthController@postLogin');
 	Route::get('/logout', 'AuthController@getLogout');
 });
-
-/////////// AUTH END /////////////////
 
 /////////// ADMIN /////////////////
 
@@ -36,6 +37,13 @@ Route::prefix('/admin')->group(function() {
 		Route::get('/sections', 'SectionController@index');
 		Route::get('/sections/{section}/edit', 'SectionController@edit');
 		Route::patch('/sections/{section}', 'SectionController@update');
+
+		Route::get('/works', 'WorkController@index');
+		Route::get('/works/create', 'WorkController@create');
+		Route::post('/works/create', 'WorkController@store');
+		Route::get('/works/{work}', 'WorkController@edit');
+		Route::patch('/works/{work}', 'WorkController@update');
+		Route::delete('/works/{work}', 'WorkController@destroy');
 
 		Route::get('/posts', 'PostController@index');
 		Route::get('/posts/create', 'PostController@create');
