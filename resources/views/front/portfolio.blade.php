@@ -9,26 +9,29 @@
                     </div>
                     <div class="space-top"></div>
                     <div class="row">
+                        @foreach($works as $work)
                         <div class="col-md-4">
                             <div class="card card-plain">
                                 <div class="card-img-top">
-                                    <a href="http://www.creative-tim.com/product/paper-kit">
-                                                    <img class="img" src="{{ url('img/work1.jpg') }}" />
-                                                </a>
+                                    <a href="{{ url('/portfolio/'.$work->slug) }}">
+                                        <img class="img" src="{{ Storage::url($work->image) }}" />
+                                    </a>
                                 </div>
                                 <div class="card-body">
-                                    <a href="http://www.creative-tim.com/product/paper-kit" target="_blank">
-                                        <h4 class="card-title">Paper Kit Free</h4>
+                                    <a href="{{ url('/portfolio/'.$work->slug) }}">
+                                        <h4 class="card-title">{{ $work->name }}</h4>
                                     </a>
-                                    <h6 class="card-category text-muted">Free Ui kit</h6>
+                                    <h6 class="card-category text-muted">{{ $work->platform }}</h6>
                                     <p class="card-description">
-                                        Paper Kit is a free Bootstrap UI kit that can get you going in a new creative direction! To say the least, it's different since it's not material, flat or iOS inspired.
+                                        {{ $work->getSummary() }}
+                                        <a href="{{ url('/portfolio/'.$work->slug) }}"> Read More </a>
                                     </p>
                                 </div>
                             </div>
                         </div>
+                        @endforeach
 
-                        <div class="col-md-4">
+                        <!--div class="col-md-4">
                             <div class="card card-plain">
                                 <div class="card-img-top">
                                     <a href="https://www.creative-tim.com/product/light-bootstrap-dashboard-pro">
@@ -64,7 +67,7 @@
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </div-->
                     </div>
                     <div class="row">
                         <div class="col-md-12 text-center">
