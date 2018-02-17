@@ -71,7 +71,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <a href="{{ url('/works') }}" class="btn btn-danger btn-round" target="_blank">View All Our Works</a>
+                            <a href="{{ url('/portfolio') }}" class="btn btn-danger btn-round">View All Our Works</a>
                         </div>
                     </div>
                 </div>

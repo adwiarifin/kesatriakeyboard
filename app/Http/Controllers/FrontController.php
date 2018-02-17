@@ -20,10 +20,22 @@ class FrontController extends Controller
     	return view('front.landing.index', compact('posts', 'works'));
     }
 
+    public function blogList()
+    {
+        $posts = Post::latest()->paginate(10);
+        return view('front.blog.index', compact('posts'));
+    }
+
     public function blog($slug)
     {
     	$post = Post::where('slug', $slug)->first();
     	return view('front.blog.show', compact('post'));
+    }
+
+    public function portfolioList()
+    {
+        $works = Work::all();
+        return view('front.portfolio.index', compact('works'));
     }
 
     public function portfolio($slug)
