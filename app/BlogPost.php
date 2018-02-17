@@ -21,6 +21,6 @@ class BlogPost extends Model
 
 	public function getSummary()
 	{
-		return substr(strip_tags($this->body), 100) . '...';
+		return substr(strip_tags($this->body), 0, 200) . '...';
 	}
 }

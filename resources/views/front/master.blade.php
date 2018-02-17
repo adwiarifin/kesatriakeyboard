@@ -30,7 +30,7 @@
     <div class="wrapper">
         @include('front.header')
         <div class="main">
-            @include('front.about') @include('front.portfolio') @include('front.blogposts') @include('front.contact')
+            @yield('content')
         </div>
     </div>
     <footer class="footer footer-dark">
@@ -72,12 +72,6 @@
 <!--  Paper Kit Initialization and functons -->
 <script src="{{ url('js/paper-kit.js?v=2.1.0') }}"></script>
 
-<!--  Google Map functions -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKrdkZVJbquNPCfa3MYM8LeLn18NrxSsc"></script>
-<script type="text/javascript">
-    $().ready(function() {
-        examples.initContactUsMap();
-    });
-</script>
+@yield('addon_script')
 
 </html>

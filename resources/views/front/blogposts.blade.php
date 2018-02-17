@@ -2,7 +2,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-10 ml-auto mr-auto">
-                            <h2 class="title">Latest Blogposts 3</h2>
+                            <h2 class="title">Latest Blogposts</h2>
                             <br />
                             @php $odd = true @endphp
                             @foreach($posts as $post)
@@ -11,7 +11,7 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="card-image">
-                                            <img class="img" src="{{ url($post->image) }}" />
+                                            <img class="img" src="{{ Storage::url($post->image) }}" />
                                         </div>
                                     </div>
                                     <div class="col-md-8">
@@ -50,7 +50,7 @@
                                     <div class="col-md-4">
                                         <div class="card-image">
                                             <a href="#pablo">
-                                                <img class="img" src="{{ url('img/blog2.jpg') }}" />
+                                                <img class="img" src="{{ Storage::url('img/blog2.jpg') }}" />
                                             </a>
                                         </div>
                                     </div>
