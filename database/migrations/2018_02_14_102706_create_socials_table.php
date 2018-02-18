@@ -16,14 +16,14 @@ class CreateSocialsTable extends Migration
         Schema::create('socials', function (Blueprint $table) {
             $table->increments('id');
             $table->string('provider');
-            $table->string('code');
             $table->string('icon');
             $table->timestamps();
         });
 
-        Schema::create('user_social', function (Blueprint $table) {
+        Schema::create('social_user', function (Blueprint $table) {
             $table->integer('user_id')->references('id')->on('users');
             $table->integer('social_id')->references('id')->on('socials');
+            $table->string('link')->default('');
             $table->primary(['user_id', 'social_id']);
         });
     }
@@ -35,7 +35,7 @@ class CreateSocialsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_social');
+        Schema::dropIfExists('social_user');
         Schema::dropIfExists('socials');
     }
 }

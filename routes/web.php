@@ -32,6 +32,8 @@ Route::prefix('/auth')->group(function(){
 Route::prefix('/admin')->group(function() {
 	Route::middleware(['auth'])->group(function() {
 		Route::get('/', 'AdminController@index');
+		Route::get('/profile', 'AdminController@profile');
+        Route::patch('/profile', 'AdminController@patchProfile');
 		Route::get('/dashboard', 'AdminController@dashboard');
 
 		Route::get('/sections', 'SectionController@index');

@@ -17,9 +17,9 @@
                                     <span class="no-icon">Account</span>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Profile</a>
+                                    <a class="dropdown-item" href="{{ url('/admin/profile') }}">Profile</a>
                                     <div class="divider"></div>
-                                    <a class="dropdown-item" href="#">Logout</a>
+                                    <a class="dropdown-item" href="{{ url('/auth/logout') }}">Logout</a>
                                 </div>
                             </li>
                         </ul>
