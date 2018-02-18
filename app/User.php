@@ -31,4 +31,14 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\BlogPost');
     }
+
+    public function profile()
+    {
+        return $this->hasOne('App\Profile');
+    }
+
+    public function socials()
+    {
+        return $this->belongsToMany('App\Social')->withPivot('link');
+    }
 }

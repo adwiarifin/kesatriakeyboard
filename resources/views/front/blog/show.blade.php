@@ -48,19 +48,25 @@
                             <hr>
                             <div class="container">
                                 <div class="row">
-                                    <div class="media">
-                                        <a class="pull-left" href="#paper-kit">
-                                            <div class="avatar big-avatar">
-                                                <img class="media-object" alt="64x64" src="{{ url('/img/faces/kaci-baum-2.jpg') }}">
+                                    <div class="col-md-12">
+                                        <div class="media">
+                                            <a class="pull-left" href="#paper-kit">
+                                                <div class="avatar big-avatar">
+                                                    <img class="media-object" alt="64x64" src="{{ !is_null($post->user->profile) && !is_null($post->user->profile->image) ? Storage::url($post->user->profile->image) : url('/img/placeholder.jpg') }}">
+                                                </div>
+                                            </a>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">{{ $post->user->name }}</h4>
+                                                <div class="pull-right">
+                                                    <a href="#paper-kit" class="btn btn-default btn-round "> <i class="fa fa-reply"></i> Follow</a>
+                                                </div>
+                                                {!! !is_null($post->user->profile) ? $post->user->profile->bio : '' !!}
+                                                <p>
+                                                    @foreach($post->user->socials as $social)
+                                                    <a href="{{$social->pivot->link}}" target="_blank"><i class="fa fa-{{$social->icon}}"></i></a>
+                                                    @endforeach
+                                                </p>
                                             </div>
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading">{{ $post->user->name }}</h4>
-                                            <div class="pull-right">
-                                                <a href="#paper-kit" class="btn btn-default btn-round "> <i class="fa fa-reply"></i> Follow</a>
-                                            </div>
-                                            <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
-                                            <p> Don't forget, You're Awesome!</p>
                                         </div>
                                     </div>
                                 </div>
