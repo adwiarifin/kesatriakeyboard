@@ -18,6 +18,7 @@ Route::get('/blog', 'FrontController@blogList');
 Route::get('/blog/{slug}', 'FrontController@blog');
 Route::get('/portfolio', 'FrontController@portfolioList');
 Route::get('/portfolio/{slug}', 'FrontController@portfolio');
+Route::post('/message', 'FrontController@postMessage');
 
 /////////// AUTH /////////////////
 

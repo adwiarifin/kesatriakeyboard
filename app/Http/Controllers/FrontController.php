@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\BlogPost as Post;
 use App\Work;
+use App\Message;
 
 class FrontController extends Controller
 {
@@ -42,5 +43,27 @@ class FrontController extends Controller
     {
         $work = Work::where('slug', $slug)->first();
         return view('front.portfolio.show', compact('work'));
+    }
+
+    public function postMessage(Request $request)
+    {
+        $result = array('code' => 0, 'message' => 'Error');
+
+        if ($request->robot === 'on') 
+        {
+            $message = new Message();
+            $message->name = $request->name;
+            $message->email = $request->email;
+            $message->content = $request->content;
+            $message->save();
+
+            $result['code'] = 1;
+            $result['message'] = 'Message has been sent';
+        } else {
+            $result['message'] = 'Please check i am not robot, to ensure that u are human!';
+            return $result;
+        }
+
+        return $result;
     }
 }
