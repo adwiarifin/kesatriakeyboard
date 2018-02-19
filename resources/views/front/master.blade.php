@@ -14,7 +14,7 @@
 
     <!-- Bootstrap core CSS     -->
     <link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet" />
-    <link href="{{ url('css/paper-kit-lite.css?v=2.1.0') }}" rel="stylesheet" />
+    <link href="{{ url('css/paper-kit-lite.css') }}" rel="stylesheet" />
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="{{ url('css/custom.css') }}" rel="stylesheet" />
@@ -70,7 +70,7 @@
 <script src="{{ url('js/bootstrap-datetimepicker.min.js') }}"></script-->
 
 <!--  Paper Kit Initialization and functons -->
-<script src="{{ url('js/paper-kit.min.js?v=2.1.0') }}"></script>
+<script src="{{ url('js/paper-kit.min.js') }}"></script>
 
 @yield('addon_script')
 
