@@ -50,7 +50,7 @@
                                     <div class="col-md-4">
                                         <div class="card-image">
                                             <a href="#pablo">
-                                                <img class="img" src="{{ Storage::url('img/blog2.jpg') }}" />
+                                                <img class="img" src="{{ Storage::url($post->image) }}" />
                                             </a>
                                         </div>
                                     </div>
