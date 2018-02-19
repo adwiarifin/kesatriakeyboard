@@ -15,8 +15,8 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{ url('css/demo-admin.css') }}" rel="stylesheet" />
     <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
     <link href="{{ url('css/nucleo-icons.css') }}" rel="stylesheet" />
 </head>
 
