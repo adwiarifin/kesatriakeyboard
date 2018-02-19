@@ -20,8 +20,8 @@
     <link href="{{ url('css/custom.css') }}" rel="stylesheet" />
 
     <!--     Fonts and icons     -->
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ url('css/nucleo-icons.css') }}" rel="stylesheet" />
 </head>
 
