@@ -54,9 +54,9 @@
 </body>
 
 <!-- Core JS Files -->
-<script src="{{ url('js/jquery-3.2.1.js') }}" type="text/javascript"></script>
+<script src="{{ url('js/jquery-3.2.1.min.js') }}" type="text/javascript"></script>
 <script src="{{ url('js/jquery-ui-1.12.1.custom.min.js') }}" type="text/javascript"></script>
-<script src="{{ url('js/popper.js') }}" type="text/javascript"></script>
+<script src="{{ url('js/popper.min.js') }}" type="text/javascript"></script>
 <script src="{{ url('js/bootstrap.min.js') }}" type="text/javascript"></script>
 
 <!-- Switches -->
@@ -70,7 +70,7 @@
 <script src="{{ url('js/bootstrap-datetimepicker.min.js') }}"></script-->
 
 <!--  Paper Kit Initialization and functons -->
-<script src="{{ url('js/paper-kit.js?v=2.1.0') }}"></script>
+<script src="{{ url('js/paper-kit.min.js?v=2.1.0') }}"></script>
 
 @yield('addon_script')
 
