@@ -41,6 +41,10 @@ Route::prefix('/admin')->group(function() {
 		Route::get('/sections/{section}/edit', 'SectionController@edit');
 		Route::patch('/sections/{section}', 'SectionController@update');
 
+		Route::get('/messages', 'MessageController@index');
+		Route::get('/messages/{message}', 'MessageController@show');
+		Route::post('/messages/{message}', 'MessageController@send');
+
 		Route::get('/works', 'WorkController@index');
 		Route::get('/works/create', 'WorkController@create');
 		Route::post('/works/create', 'WorkController@store');
