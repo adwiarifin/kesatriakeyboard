@@ -1,4 +1,4 @@
-            <div class="section-white blog">
+            <div class="section section-white blog">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-10 ml-auto mr-auto">

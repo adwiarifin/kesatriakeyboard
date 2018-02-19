@@ -44,17 +44,91 @@
 	padding: 80px 0;
 }
 
+.card.card-contact .card-header {
+  margin: 15px;
+  border-radius: 3px;
+  padding: 15px 0 0 0;
+  background-color: #FFF;
+  border: 0;
+}
+.card.card-contact .card-header .card-title {
+  color: #66615B;
+  margin-top: 0px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #DDDDDD;
+}
+.card.card-contact .card-body .card-icon {
+  float: left;
+  margin-top: 24px;
+  margin-right: 10px;
+  border: 0;
+}
+.card.card-contact .card-body .card-icon i {
+  font-size: 30px;
+  padding: 25px;
+  width: 50px;
+  border: 0;
+  border-radius: 50%;
+  height: 110px;
+}
+
+.info {
+  padding: 30px 0 30px;
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.info .icon {
+  margin-top: 0;
+  font-size: 3.4em;
+}
+.info .icon.icon-sm {
+  font-size: 1.6em;
+}
+.info .icon .fa {
+  width: 48px;
+}
+.info h4,
+.info .h4 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.info-horizontal {
+  text-align: left;
+  margin-top: 0;
+}
+.info-horizontal .icon {
+  float: left;
+  margin-top: 5px;
+  margin-right: 20px;
+  font-size: 2.5em;
+}
+.info-horizontal .icon .fa {
+  width: 48px;
+}
+.info-horizontal .description {
+  overflow: hidden;
+}
+.info-horizontal .btn {
+  margin-left: -19px;
+}
 
 .contactus {
   position: relative;
 }
-.contactus .card {
-  top: 60px;
+.contactus.section-image .card-contact {
+  margin-bottom: 30px;
+  margin-top: 50px;
 }
-.contactus .big-map {
-  width: 100%;
-  height: 90%;
-  position: absolute;
+.contactus.section-image .title {
+  margin-top: 15%;
+}
+.contactus .info-horizontal {
+  margin-left: 0;
+}
+.contactus .description, .contactus .info-title {
+  color: #333333 !important;
 }
 
 .footer-dark {
