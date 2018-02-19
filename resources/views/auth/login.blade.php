@@ -17,8 +17,8 @@
 	<link href="{{ url('css/paper-kit-lite.css?v=2.1.0') }}" rel="stylesheet"/>
 
     <!--     Fonts and icons     -->
-	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
-	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+	<link href='//fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
 
 </head>
 <body>
