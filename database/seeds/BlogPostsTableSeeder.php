@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\BlogPost;
-use App\BLogCategory;
+use App\BlogCategory;
 
 class BlogPostsTableSeeder extends Seeder
 {
