@@ -20,11 +20,11 @@ class MessageController extends Controller
         return view('admin.message.show', compact('message'));
     }
 
-    public function send(Message $message, Request $request)
+    public function send(Request $request)
     {
+        $name = $request->name;
+        $email = $request->email;
         $reply = $request->reply;
-        $name = $message->name;
-        $email = $message->email;
 
         // Mail::send('admin.email.send', compact('name', 'reply'), function($message){
         //     $message->from('info@kesatriakeyboard.com', 'Kesatria Keyboard');
@@ -33,6 +33,9 @@ class MessageController extends Controller
 
         Mail::to($email)->send(new MessageReply($name, $reply));
 
-        return response()->json(['message' => 'Request Completed']);
+        // info message
+        session()->flash('message', 'Message has been replied');
+
+        return redirect('/admin/messages');
     }
 }

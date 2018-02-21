@@ -12,6 +12,8 @@
                             <div class="card-body">
                                 <form lpformnum="1" method="POST" action="{{url('/admin/messages/'.$message->id)}}">
                                     {{ csrf_field() }}
+                                    <input type="hidden" name="name" value="{{ $message->name }}" />
+                                    <input type="hidden" name="email" value="{{ $message->email }}">
 
                                     <div class="row">
                                         <div class="col-md-6">
