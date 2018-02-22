@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Social;
 use App\Profile;
+use Analytics;
+use Spatie\Analytics\Period;
 
 class AdminController extends Controller
 {
     public function index()
     {
-    	return redirect('/admin/dashboard');
+        return redirect('/admin/dashboard');
     }
 
     public function profile()
@@ -66,6 +68,10 @@ class AdminController extends Controller
 
     public function dashboard()
     {
+        //retrieve visitors and pageview data for the current day and the last seven days
+        $analyticsData = Analytics::fetchVisitorsAndPageViews(Period::days(7));
+        return $analyticsData;
+
     	return view('admin.default');
     }
 }
