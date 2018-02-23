@@ -74,14 +74,15 @@ class AdminController extends Controller
         $endDate = Carbon::now();
         $period = Period::create($startDate, $endDate);
 
-        $vpUnique = Analytics::fetchVisitorsAndPageViews($period);
-        $vpTotal = Analytics::fetchTotalVisitorsAndPageViews($period);
+        //$vpUnique = Analytics::fetchVisitorsAndPageViews($period);
+        $vpUnique = Analytics::fetchTotalVisitorsAndPageViews($period);
         //$analyticsData = Analytics::fetchVisitorsAndPageViews(Period::months(6));
         //$analyticsData = Analytics::fetchMostVisitedPages(Period::days(7));
         //$analyticsData = Analytics::fetchTopReferrers(Period::days(7));
-        //$analyticsData = Analytics::fetchUserTypes(Period::days(7));
+        $userTypes = Analytics::fetchUserTypes(Period::days(7));
         //$analyticsData = Analytics::fetchTopBrowsers(Period::days(7));
         //return $period;
+        //dd($userTypes);
 
         $labels = array();
         $date = clone $startDate;
@@ -90,23 +91,20 @@ class AdminController extends Controller
             $date->addDay();
         }
 
-        $visitorsTotal = collect([0, 0, 0, 0, 0, 0, 0, 0]);
+        $visitorsUnique = collect([0, 0, 0, 0, 0, 0, 0, 0]);
+        $pageViewsUnique = collect([0, 0, 0, 0, 0, 0, 0, 0]);
         foreach($vpUnique as $vp){
             $date = $vp['date'];
             $index = $date->day - $startDate->day;
-            $visitorsTotal[$index] += $vp['visitors'];
-        }
-
-        $visitorsUnique = collect([0, 0, 0, 0, 0, 0, 0, 0]);
-        foreach($vpTotal as $vp){
-            $date = $vp['date'];
-            $index = $date->day - $startDate->day;
             $visitorsUnique[$index] += $vp['visitors'];
+            $pageViewsUnique[$index] += $vp['pageViews'];
         }
 
-        $visitors = collect([$visitorsTotal, $visitorsUnique]);
+        // $visitors = collect([$visitorsTotal, $visitorsUnique]);
+        // $pageViews = collect([$pageViewsTotal, $pageViewsUnique]);
+        //dd($vpUnique);
 
-    	return view('admin.dashboard.index', compact('labels', 'visitors'));
+    	return view('admin.dashboard.index', compact('labels', 'pageViewsUnique', 'visitorsUnique', 'userTypes'));
     }
 
     public function default()

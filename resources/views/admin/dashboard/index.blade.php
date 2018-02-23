@@ -2,10 +2,10 @@
 
 @section('content')
 					<div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-8">
                             <div class="card ">
                                 <div class="card-header ">
-                                    <h4 class="card-title">Visitors</h4>
+                                    <h4 class="card-title">Visitors and Page Views</h4>
                                     <p class="card-category">7 Days performance</p>
                                 </div>
                                 <div class="card-body ">
@@ -13,8 +13,25 @@
                                 </div>
                                 <div class="card-footer ">
                                     <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Total
-                                        <i class="fa fa-circle text-danger"></i> Unique
+                                        <i class="fa fa-circle text-info"></i> Page Views
+                                        <i class="fa fa-circle text-danger"></i> Visitors
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card ">
+                                <div class="card-header ">
+                                    <h4 class="card-title">User Types</h4>
+                                    <p class="card-category">7 Days performance</p>
+                                </div>
+                                <div class="card-body ">
+                                    <div id="chartUserTypes" class="ct-chart"></div>
+                                </div>
+                                <div class="card-footer ">
+                                    <div class="legend">
+                                        <i class="fa fa-circle text-info"></i> New Visitor
+                                        <i class="fa fa-circle text-danger"></i> Returning Visitor
                                     </div>
                                 </div>
                             </div>
@@ -26,15 +43,10 @@
 <script type="text/javascript">
     $(document).ready(function() {
         
+        // Chart 1
         var dataVisitors = {
             labels: {{ json_encode($labels) }},
-            series: {{ json_encode($visitors) }}
-            /*labels: ['9:00AM', '12:00AM', '3:00PM', '6:00PM', '9:00PM', '12:00PM', '3:00AM', '6:00AM'],
-            series: [
-                [287, 385, 490, 492, 554, 586, 698, 695, 752, 788, 846, 944],
-                [67, 152, 143, 240, 287, 335, 435, 437, 539, 542, 544, 647],
-                [67, 113, 67, 108, 190, 239, 307, 308, 439, 410, 410, 509]
-            ]*/
+            series: [ {{ json_encode($pageViewsUnique) }}, {{ json_encode($visitorsUnique) }} ]
         };
 
         var optionVisitors = {
@@ -42,7 +54,7 @@
             showArea: true,
             height: "245px",
             axisX: {
-                showGrid: true,
+                showGrid: false,
             },
             lineSmooth: Chartist.Interpolation.simple({
                 divisor: 3
@@ -53,6 +65,25 @@
         };
 
         Chartist.Line('#chartVisitors', dataVisitors, optionVisitors);
+
+        // Chart 2
+        var dataPageViews = {
+            labels: {{ $userTypes->map(function($item){return $item['sessions'];})->toJson() }},
+            series: {{ $userTypes->map(function($item){return $item['sessions'];})->toJson() }}
+        };
+
+        var optionPageViews = {
+            donut: true,
+            donutWidth: 40,
+            startAngle: 0,
+            total: 100,
+            showLabel: false,
+            axisX: {
+                showGrid: false
+            }
+        };
+
+        Chartist.Pie('#chartUserTypes', dataPageViews);
     });
 </script>
 @endsection
