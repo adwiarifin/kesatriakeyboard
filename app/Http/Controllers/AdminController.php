@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Social;
 use App\Profile;
 use Analytics;
+use Carbon\Carbon;
 use Spatie\Analytics\Period;
 
 class AdminController extends Controller
@@ -69,9 +70,47 @@ class AdminController extends Controller
     public function dashboard()
     {
         //retrieve visitors and pageview data for the current day and the last seven days
-        $analyticsData = Analytics::fetchVisitorsAndPageViews(Period::days(7));
-        return $analyticsData;
+        $startDate = Carbon::now()->subDays(7);
+        $endDate = Carbon::now();
+        $period = Period::create($startDate, $endDate);
 
-    	return view('admin.default');
+        $vpUnique = Analytics::fetchVisitorsAndPageViews($period);
+        $vpTotal = Analytics::fetchTotalVisitorsAndPageViews($period);
+        //$analyticsData = Analytics::fetchVisitorsAndPageViews(Period::months(6));
+        //$analyticsData = Analytics::fetchMostVisitedPages(Period::days(7));
+        //$analyticsData = Analytics::fetchTopReferrers(Period::days(7));
+        //$analyticsData = Analytics::fetchUserTypes(Period::days(7));
+        //$analyticsData = Analytics::fetchTopBrowsers(Period::days(7));
+        //return $period;
+
+        $labels = array();
+        $date = clone $startDate;
+        while($date < $endDate){
+            $labels[] = $date->day;
+            $date->addDay();
+        }
+
+        $visitorsTotal = collect([0, 0, 0, 0, 0, 0, 0, 0]);
+        foreach($vpUnique as $vp){
+            $date = $vp['date'];
+            $index = $date->day - $startDate->day;
+            $visitorsTotal[$index] += $vp['visitors'];
+        }
+
+        $visitorsUnique = collect([0, 0, 0, 0, 0, 0, 0, 0]);
+        foreach($vpTotal as $vp){
+            $date = $vp['date'];
+            $index = $date->day - $startDate->day;
+            $visitorsUnique[$index] += $vp['visitors'];
+        }
+
+        $visitors = collect([$visitorsUnique, $visitorsTotal]);
+
+    	return view('admin.dashboard.index', compact('labels', 'visitors'));
+    }
+
+    public function default()
+    {
+        return view('admin.default');
     }
 }

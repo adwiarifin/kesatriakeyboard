@@ -36,6 +36,7 @@ Route::prefix('/admin')->group(function() {
 		Route::get('/profile', 'AdminController@profile');
         Route::patch('/profile', 'AdminController@patchProfile');
 		Route::get('/dashboard', 'AdminController@dashboard');
+		Route::get('/default', 'AdminController@default');
 
 		Route::get('/sections', 'SectionController@index');
 		Route::get('/sections/{section}/edit', 'SectionController@edit');
