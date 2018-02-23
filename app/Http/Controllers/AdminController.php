@@ -104,7 +104,7 @@ class AdminController extends Controller
             $visitorsUnique[$index] += $vp['visitors'];
         }
 
-        $visitors = collect([$visitorsUnique, $visitorsTotal]);
+        $visitors = collect([$visitorsTotal, $visitorsUnique]);
 
     	return view('admin.dashboard.index', compact('labels', 'visitors'));
     }
