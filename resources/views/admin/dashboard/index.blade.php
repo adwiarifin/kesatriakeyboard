@@ -5,7 +5,7 @@
                         <div class="col-md-8">
                             <div class="card ">
                                 <div class="card-header ">
-                                    <h4 class="card-title">Visitors and Page Views</h4>
+                                    <h4 class="card-title">Page Views and Visitors</h4>
                                     <p class="card-category">7 Days performance</p>
                                 </div>
                                 <div class="card-body ">
@@ -40,16 +40,19 @@
 @endsection
 
 @section('addon_script')
+<script type="text/javascript" src="{{ url('js/chartist-plugin-pointlabels.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         
         // Chart 1
-        var dataVisitors = {
+        //var dataVisitors = ;
+
+        //var optionVisitors = ;
+
+        Chartist.Line('#chartVisitors', {
             labels: {{ json_encode($labels) }},
             series: [ {{ json_encode($pageViewsUnique) }}, {{ json_encode($visitorsUnique) }} ]
-        };
-
-        var optionVisitors = {
+        }, {
             lineSmooth: false,
             showArea: true,
             height: "245px",
@@ -60,30 +63,22 @@
                 divisor: 3
             }),
             showLine: false,
-            showPoint: false,
-            fullWidth: false
-        };
-
-        Chartist.Line('#chartVisitors', dataVisitors, optionVisitors);
+            showPoint: true,
+            fullWidth: false,
+            plugins: [
+                Chartist.plugins.ctPointLabels({
+                  textAnchor: 'middle'
+                })
+            ]
+        });
 
         // Chart 2
-        var dataPageViews = {
+        var dataUserTypes = {
             labels: {{ $userTypes->map(function($item){return $item['sessions'];})->toJson() }},
             series: {{ $userTypes->map(function($item){return $item['sessions'];})->toJson() }}
         };
 
-        var optionPageViews = {
-            donut: true,
-            donutWidth: 40,
-            startAngle: 0,
-            total: 100,
-            showLabel: false,
-            axisX: {
-                showGrid: false
-            }
-        };
-
-        Chartist.Pie('#chartUserTypes', dataPageViews);
+        Chartist.Pie('#chartUserTypes', dataUserTypes);
     });
 </script>
 @endsection

@@ -18,6 +18,8 @@
     <link href="//fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
     <link href="{{ url('css/nucleo-icons.css') }}" rel="stylesheet" />
+
+    @yield('addon_style')
 </head>
 
 <body>
@@ -88,6 +90,7 @@
 <script src="{{ url('js/light-bootstrap-dashboard.js?v=2.0.1') }}" type="text/javascript"></script>
 <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{ url('js/admin.js') }}"></script>
+
 @yield('addon_script')
 
 </html>
