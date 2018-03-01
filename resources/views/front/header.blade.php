@@ -1,4 +1,4 @@
-        <div class="page-header section-dark" style="background-image: url('{{ url('img/antoine-barres.jpg') }}')">
+        <div class="page-header section-dark" style="background-image: url('//res.cloudinary.com/duy7bgnk8/image/upload/c_scale,dpr_auto,f_auto,fl_progressive,q_auto,w_auto/v1519877470/antoine-barres_fieegl.jpg')">
             <div class="filter"></div>
     		<div class="content-center">
     			<div class="container">
@@ -6,17 +6,17 @@
                         <!--img src="{{ url('img/kesatria_logo.png') }}" /-->
     					<h1 class="presentation-title">{{ App\Section::getValue('title') }}</h1>
     					<div class="fog-low">
-    						<img src="{{ url('img/fog-low.png') }}" alt="">
+    						<img src="//res.cloudinary.com/duy7bgnk8/image/upload/w_auto,dpr_auto/v1519906939/fog-low_fze24b.png" alt="">
     					</div>
     					<div class="fog-low right">
-    						<img src="{{ url('img/fog-low.png') }}" alt="">
+    						<img src="//res.cloudinary.com/duy7bgnk8/image/upload/w_auto,dpr_auto/v1519906939/fog-low_fze24b.png" alt="">
     					</div>
     				</div>
 
     				<h2 class="presentation-subtitle text-center">{{ App\Section::getValue('subtitle') }}</h2>
     			</div>
     		</div>
-            <div class="moving-clouds" style="background-image: url('{{ url('img/clouds.png') }}'); ">
+            <div class="moving-clouds" style="background-image: url('//res.cloudinary.com/duy7bgnk8/image/upload/w_auto,dpr_auto/v1519906952/clouds_vwtcoq.png'); ">
 
             </div>
     		<!--h6 class="category category-absolute">Designed and coded by

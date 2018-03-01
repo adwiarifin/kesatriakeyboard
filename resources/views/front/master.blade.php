@@ -24,6 +24,7 @@
 
     <title>{{ App\Section::getValue('title') }} - {{ App\Section::getValue('subtitle') }}</title>
 
+    <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -88,6 +89,9 @@
 
 <!--  Paper Kit Initialization and functons -->
 <script src="{{ url('js/paper-kit.min.js') }}"></script>
+
+<!-- CLoudinary Responsive Image -->
+<!--script src="{{ url('js/cloudinary-core-shrinkwrap.min.js') }}"></script-->
 
 @yield('addon_script')
 
