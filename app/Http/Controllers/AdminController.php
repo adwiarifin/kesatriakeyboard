@@ -93,11 +93,12 @@ class AdminController extends Controller
 
         $visitorsUnique = collect([0, 0, 0, 0, 0, 0, 0, 0]);
         $pageViewsUnique = collect([0, 0, 0, 0, 0, 0, 0, 0]);
+        $index = 0;
         foreach($vpUnique as $vp){
             $date = $vp['date'];
-            $index = $date->day - $startDate->day;
             $visitorsUnique[$index] += $vp['visitors'];
             $pageViewsUnique[$index] += $vp['pageViews'];
+            $index++;
         }
 
         // $visitors = collect([$visitorsTotal, $visitorsUnique]);
