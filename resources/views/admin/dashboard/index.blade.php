@@ -157,8 +157,8 @@
 
 
 @section('addon_script')
-<script type="text/javascript" src="//jvectormap.com/js/jquery-jvectormap-2.0.3.min.js"></script>
-<script type="text/javascript" src="//jvectormap.com/js/jquery-jvectormap-world-mill.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.4/jquery-jvectormap.min.js"></script>
+<script type="text/javascript" src="{{ url('js/jquery-jvectormap-world-mill.js') }}"></script>
 <script type="text/javascript" src="{{ url('js/chartist-plugin-pointlabels.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
