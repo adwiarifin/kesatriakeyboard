@@ -24,7 +24,7 @@
 <body>
     @include('front.navbar')
     <div class="wrapper">
-        <div class="page-header" style="background-image: url('{{ url('img/login-image.jpg') }}');">
+        <div class="page-header" style="background-image: url('//res.cloudinary.com/duy7bgnk8/image/upload/c_scale,dpr_auto,fl_progressive,w_auto/v1519938571/login-image_wumpkm.jpg');">
             <div class="filter"></div>
                 <div class="container">
                     <div class="row">
