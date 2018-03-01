@@ -75,11 +75,33 @@ class AdminController extends Controller
         $mostVisitedPages = Analytics::fetchMostVisitedPages($period);
         $topReferrers = Analytics::fetchTopReferrers($period);
         $topBrowsers = Analytics::fetchTopBrowsers($period);
-        $color = ['info', 'danger', 'warning'];
+        $color = ['info', 'danger', 'warning', 'purple'];
         //return $period;
-        //dd($userTypes);
 
-        return view('admin.dashboard.index', compact('vpUnique', 'userTypes', 'mostVisitedPages', 'topReferrers', 'topBrowsers', 'color'));
+
+        $response = Analytics::performQuery($period, 'ga:sessions', ['dimensions' => 'ga:countryIsoCode,ga:country', 'sort' => '-ga:sessions']);
+        $topCountryVisitor = collect($response['rows'] ?? [])->map(function (array $row) {
+            return [
+                'iso_code' => $row[0],
+                'country' => $row[1],
+                'sessions' => (int) $row[2],
+            ];
+        });
+
+        $iso_code = $topCountryVisitor->pluck('iso_code');
+        $sessions = $topCountryVisitor->pluck('sessions');
+        $vectorMap = $iso_code->combine($sessions);
+        //dd($iso_code->combine($sessions)->toJson());
+
+        $response = Analytics::performQuery($period, 'ga:sessions', ['dimensions' => 'ga:operatingSystem', 'sort' => '-ga:sessions']);
+        $topOperatingSystems = collect($response['rows'] ?? [])->map(function (array $row) {
+            return [
+                'os' => $row[0],
+                'sessions' => (int) $row[1]
+            ];
+        });
+
+        return view('admin.dashboard.index', compact('vpUnique', 'userTypes', 'mostVisitedPages', 'topReferrers', 'topBrowsers', 'color', 'vectorMap', 'topOperatingSystems'));
     }
 
     public function default()

@@ -851,3 +851,9 @@
   100% {
     transform: scale(0.75);
   }
+}
+
+
+.text-purple, .text-purple:hover {
+    color: #9368E9 !important;
+}
