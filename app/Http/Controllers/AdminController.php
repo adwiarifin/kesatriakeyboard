@@ -69,43 +69,17 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        //retrieve visitors and pageview data for the current day and the last seven days
-        $startDate = Carbon::now()->subDays(7);
-        $endDate = Carbon::now();
-        $period = Period::create($startDate, $endDate);
-
-        //$vpUnique = Analytics::fetchVisitorsAndPageViews($period);
+        $period = Period::days(7);
         $vpUnique = Analytics::fetchTotalVisitorsAndPageViews($period);
-        //$analyticsData = Analytics::fetchVisitorsAndPageViews(Period::months(6));
-        //$analyticsData = Analytics::fetchMostVisitedPages(Period::days(7));
-        //$analyticsData = Analytics::fetchTopReferrers(Period::days(7));
-        $userTypes = Analytics::fetchUserTypes(Period::days(7));
-        //$analyticsData = Analytics::fetchTopBrowsers(Period::days(7));
+        $userTypes = Analytics::fetchUserTypes($period);
+        $mostVisitedPages = Analytics::fetchMostVisitedPages($period);
+        $topReferrers = Analytics::fetchTopReferrers($period);
+        $topBrowsers = Analytics::fetchTopBrowsers($period);
+        $color = ['info', 'danger', 'warning'];
         //return $period;
         //dd($userTypes);
 
-        $labels = array();
-        $date = clone $startDate;
-        while($date < $endDate){
-            $labels[] = $date->day;
-            $date->addDay();
-        }
-
-        $visitorsUnique = collect([0, 0, 0, 0, 0, 0, 0, 0]);
-        $pageViewsUnique = collect([0, 0, 0, 0, 0, 0, 0, 0]);
-        $index = 0;
-        foreach($vpUnique as $vp){
-            $date = $vp['date'];
-            $visitorsUnique[$index] += $vp['visitors'];
-            $pageViewsUnique[$index] += $vp['pageViews'];
-            $index++;
-        }
-
-        // $visitors = collect([$visitorsTotal, $visitorsUnique]);
-        // $pageViews = collect([$pageViewsTotal, $pageViewsUnique]);
-        //dd($vpUnique);
-
-    	return view('admin.dashboard.index', compact('labels', 'pageViewsUnique', 'visitorsUnique', 'userTypes'));
+        return view('admin.dashboard.index', compact('vpUnique', 'userTypes', 'mostVisitedPages', 'topReferrers', 'topBrowsers', 'color'));
     }
 
     public function default()

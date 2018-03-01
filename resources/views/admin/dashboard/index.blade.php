@@ -30,8 +30,87 @@
                                 </div>
                                 <div class="card-footer ">
                                     <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> New Visitor
-                                        <i class="fa fa-circle text-danger"></i> Returning Visitor
+                                        <?php $i = 0; ?>
+                                        @foreach($userTypes->pluck('type') as $type)
+                                        <i class="fa fa-circle text-{{ $color[$i++] }}"></i> {{ $type }}
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Most Visited Pages</h4>
+                                    <p class="card-category">7 Days performance</p>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-full-width">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>URL</th>
+                                                    <th>Page Views</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($mostVisitedPages as $row)
+                                                <tr>
+                                                    <td><a href="{{ url($row['url']) }}" target="_blank">{{ $row['url'] }}</a></td>
+                                                    <td width="100%">{{ $row['pageViews'] }}</td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Top Referrers</h4>
+                                    <p class="card-category">7 Days performance</p>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-full-width">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Referrers</th>
+                                                    <th>Page Views</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($topReferrers as $row)
+                                                <tr>
+                                                    <td><a href="{{ url($row['url']) }}" target="_blank">{{ $row['url'] }}</a></td>
+                                                    <td width="100%">{{ $row['pageViews'] }}</td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card ">
+                                <div class="card-header ">
+                                    <h4 class="card-title">Top Browsers</h4>
+                                    <p class="card-category">7 Days performance</p>
+                                </div>
+                                <div class="card-body ">
+                                    <div id="chartTopBrowsers" class="ct-chart"></div>
+                                </div>
+                                <div class="card-footer ">
+                                    <div class="legend">
+                                        <?php $i = 0; ?>
+                                        @foreach($topBrowsers->pluck('browser') as $browser)
+                                        <i class="fa fa-circle text-{{ $color[$i++] }}"></i> {{ $browser }}
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -50,8 +129,8 @@
         //var optionVisitors = ;
 
         Chartist.Line('#chartVisitors', {
-            labels: {{ json_encode($labels) }},
-            series: [ {{ json_encode($pageViewsUnique) }}, {{ json_encode($visitorsUnique) }} ]
+            labels: {{ $vpUnique->pluck('date')->map(function($item){return $item->day;})->toJson() }},
+            series: [ {{ $vpUnique->pluck('pageViews')->toJson() }}, {{ $vpUnique->pluck('visitors')->toJson() }} ]
         }, {
             lineSmooth: false,
             showArea: true,
@@ -74,11 +153,19 @@
 
         // Chart 2
         var dataUserTypes = {
-            labels: {{ $userTypes->map(function($item){return $item['sessions'];})->toJson() }},
-            series: {{ $userTypes->map(function($item){return $item['sessions'];})->toJson() }}
+            labels: {{ $userTypes->pluck('sessions')->toJson() }},
+            series: {{ $userTypes->pluck('sessions')->toJson() }}
         };
-
         Chartist.Pie('#chartUserTypes', dataUserTypes);
+
+        // Chart 3
+        var dataTopBrowsers = {
+            labels: {{ $topBrowsers->pluck('sessions')->toJson() }},
+            series: {{ $topBrowsers->pluck('sessions')->toJson() }}
+        };
+        Chartist.Pie('#chartTopBrowsers', dataTopBrowsers);
+
+        
     });
 </script>
 @endsection
