@@ -30,6 +30,9 @@ class FrontController extends Controller
     public function blog($slug)
     {
     	$post = Post::where('slug', $slug)->first();
+        if ($post === null) {
+            return redirect('/blog');
+        }
     	return view('front.blog.show', compact('post'));
     }
 
