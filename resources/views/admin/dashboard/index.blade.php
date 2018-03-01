@@ -86,7 +86,7 @@
                                             <tbody>
                                                 @foreach($topReferrers as $row)
                                                 <tr>
-                                                    <td><a href="{{ url($row['url']) }}" target="_blank">{{ $row['url'] }}</a></td>
+                                                    <td>{{ $row['url'] }}</td>
                                                     <td width="100%">{{ $row['pageViews'] }}</td>
                                                 </tr>
                                                 @endforeach
