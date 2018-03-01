@@ -1,4 +1,4 @@
-            <div id="contact" class="section-white contactus section-image" style="background-image: url('//res.cloudinary.com/duy7bgnk8/image/upload/c_scale,dpr_auto,fl_progressive,q_auto,w_auto/v1519877493/soroush-karimi_tsbwxm.jpg')">
+            <div id="contact" class="section-white contactus section-image" style="background-image: url('//res.cloudinary.com/duy7bgnk8/image/upload/c_scale,dpr_auto,fl_progressive,w_auto/v1519877493/soroush-karimi_tsbwxm.jpg')">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-10 ml-auto mr-auto">

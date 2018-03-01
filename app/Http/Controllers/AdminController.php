@@ -75,7 +75,7 @@ class AdminController extends Controller
         $mostVisitedPages = Analytics::fetchMostVisitedPages($period);
         $topReferrers = Analytics::fetchTopReferrers($period);
         $topBrowsers = Analytics::fetchTopBrowsers($period);
-        $color = ['info', 'danger', 'warning', 'purple'];
+        $color = ['info', 'danger', 'warning', 'purple', 'success'];
         //return $period;
 
 

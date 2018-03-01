@@ -1,4 +1,4 @@
-        <div class="page-header section-dark" style="background-image: url('//res.cloudinary.com/duy7bgnk8/image/upload/c_scale,dpr_auto,f_auto,fl_progressive,q_auto,w_auto/v1519877470/antoine-barres_fieegl.jpg')">
+        <div class="page-header section-dark" style="background-image: url('//res.cloudinary.com/duy7bgnk8/image/upload/c_scale,dpr_auto,fl_progressive,w_auto/v1519877470/antoine-barres_fieegl.jpg')">
             <div class="filter"></div>
     		<div class="content-center">
     			<div class="container">

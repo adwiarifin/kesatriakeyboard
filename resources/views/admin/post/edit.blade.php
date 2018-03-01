@@ -52,7 +52,7 @@
                                     <h4 class="card-title">Featured Image</h4>
                                 </div>
                                 <div class="card-body">
-                                    <img src="{{ Storage::url($post->image) }}" style="width: 100%;" />
+                                    <img src="{{ $post->getImageUrl() }}" style="width: 100%;" />
                                     <input type="file" name="image" class="form-control">
                                 </div>
                             </div>

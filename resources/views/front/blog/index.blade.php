@@ -12,7 +12,7 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="card-image">
-                                            <img class="img" src="{{ Storage::url($post->image) }}" />
+                                            <img class="img" src="{{ $post->getImageUrl() }}" />
                                         </div>
                                     </div>
                                     <div class="col-md-8">
