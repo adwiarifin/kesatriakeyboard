@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
+use JD\Cloudder\Facades\Cloudder;
 use App\Work;
 
 class WorkController extends Controller
@@ -45,8 +45,8 @@ class WorkController extends Controller
         // save image
         $file = $request->file('image');
         if(!is_null($file)){
-            $path = $file->store('public/files');
-            $work->image = $path;
+            Cloudder::upload($file->getRealPath(), null, [], ['work']);
+            $work->image = Cloudder::getPublicId();
             $work->update();
         }
 
@@ -89,10 +89,11 @@ class WorkController extends Controller
         // update image
         $file = $request->file('image');
         if(!is_null($file)){
-            Storage::delete($work->image);
+            Cloudder::destroyImage($work->image);
+            Cloudder::delete($work->image);
 
-            $path = $file->store('public/files');
-            $work->image = $path;
+            Cloudder::upload($file->getRealPath(), null, [], ['work']);
+            $work->image = Cloudder::getPublicId();
             $work->update();
         }
 
@@ -109,7 +110,8 @@ class WorkController extends Controller
     public function destroy(Work $work)
     {
         // remove image
-        Storage::delete($work->image);
+        Cloudder::destroyImage($work->image);
+        Cloudder::delete($work->image);
 
         // remove in database
         $work->delete();

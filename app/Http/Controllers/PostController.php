@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 use JD\Cloudder\Facades\Cloudder;
 use App\BlogPost as Post;
 use App\BlogCategory as Category;
@@ -53,9 +52,6 @@ class PostController extends Controller
         // save image
         $file = $request->file('image');
         if(!is_null($file)){
-            // $path = $file->store('public/files');
-            // $post->image = $path;
-            // $post->update();
             Cloudder::upload($file->getRealPath(), null, [], ['post']);
             $post->image = Cloudder::getPublicId();
             $post->update();
@@ -103,12 +99,6 @@ class PostController extends Controller
         // update image
         $file = $request->file('image');
         if(!is_null($file)){
-            // Storage::delete($post->image);
-
-            // $path = $file->store('public/files');
-            // $post->image = $path;
-            // $post->update();
-
             Cloudder::destroyImage($post->image);
             Cloudder::delete($post->image);
 
@@ -130,7 +120,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         // remove image
-        //Storage::delete($post->image);
         Cloudder::destroyImage($post->image);
         Cloudder::delete($post->image);
 

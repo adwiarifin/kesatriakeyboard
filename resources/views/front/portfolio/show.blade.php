@@ -14,7 +14,7 @@
                         <div class="col-md-8 ml-auto mr-auto">
                             <!--img src="{{ Storage::url($work->image) }}" class="img"-->
                             <a href="javascrip: void(0);">
-                                <div class="blog-card" data-radius="none" style="background-image: url('{{ Storage::url($work->image) }}');"></div>
+                                <div class="blog-card" data-radius="none" style="background-image: url('{{ $work->getImageUrl() }}');"></div>
                             </a>
                             <div class="article-content">
                                 {!! $work->description !!}

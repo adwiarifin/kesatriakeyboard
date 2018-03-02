@@ -17,4 +17,13 @@ class Work extends Model
 		
 		return $description;
 	}
+
+	public function getImageUrl()
+	{
+		if(\Request::secure())
+        {
+            return \Cloudder::secureShow($this->image);
+        }
+        return \Cloudder::show($this->image);
+	}
 }

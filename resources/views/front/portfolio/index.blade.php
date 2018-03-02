@@ -15,7 +15,7 @@
                             <div class="card card-plain">
                                 <div class="card-img-top">
                                     <a href="{{ url('/portfolio/'.$work->slug) }}">
-                                        <img class="img" src="{{ Storage::url($work->image) }}" />
+                                        <img class="img" src="{{ $work->getImageUrl() }}" />
                                     </a>
                                 </div>
                                 <div class="card-body">

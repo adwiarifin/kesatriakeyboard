@@ -14,7 +14,7 @@
                             <div class="card card-plain">
                                 <div class="card-img-top">
                                     <a href="{{ url('/portfolio/'.$work->slug) }}">
-                                        <img class="img" src="{{ Storage::url($work->image) }}" />
+                                        <img class="img" src="{{ $work->getImageUrl() }}" />
                                     </a>
                                 </div>
                                 <div class="card-body">
@@ -30,44 +30,6 @@
                             </div>
                         </div>
                         @endforeach
-
-                        <!--div class="col-md-4">
-                            <div class="card card-plain">
-                                <div class="card-img-top">
-                                    <a href="https://www.creative-tim.com/product/light-bootstrap-dashboard-pro">
-                                                    <img class="img" src="{{ url('img/work2.jpg') }}" />
-                                                </a>
-                                </div>
-                                <div class="card-body">
-                                    <a href="https://www.creative-tim.com/product/light-bootstrap-dashboard-pro" target="_blank">
-                                        <h4 class="card-title">Light Bootstrap Dashboard </h4>
-                                    </a>
-                                    <h6 class="card-category text-muted">Premium template</h6>
-                                    <p class="card-description">
-                                        Light Bootstrap Dashboard PRO is a Bootstrap Admin Theme designed to look simple and beautiful. Forget about boring dashboards and grab yourself a copy to kickstart new project!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="card card-plain">
-                                <div class="card-img-top">
-                                    <a href="https://www.creative-tim.com/product/get-shit-done-pro">
-                                                    <img class="img" src="{{ url('img/work3.jpg') }}" />
-                                                </a>
-                                </div>
-                                <div class="card-body">
-                                    <a href="https://www.creative-tim.com/product/get-shit-done-pro" target="_blank">
-                                        <h4 class="card-title">Get Shit Done Kit Pro</h4>
-                                    </a>
-                                    <h6 class="card-category text-muted">Premium UI kit</h6>
-                                    <p class="card-description">
-                                        Get Shit Done Kit Pro it's a Bootstrap Kit that comes with a huge number of customisable components. They are pixel perfect, light and easy to use and combine with other elements.
-                                    </p>
-                                </div>
-                            </div>
-                        </div-->
                     </div>
                     <div class="row">
                         <div class="col-md-12 text-center">
