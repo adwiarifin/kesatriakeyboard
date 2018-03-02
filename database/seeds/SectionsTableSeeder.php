@@ -70,7 +70,7 @@ class SectionsTableSeeder extends Seeder
 
         $section = new Section();
         $section->key = 'social_twitter';
-        $section->value = 'https://twitter.com/kesatriakeyboard';
+        $section->value = 'https://twitter.com/ksatriakeyboard';
         $section->save();
 
         $section = new Section();
@@ -85,7 +85,7 @@ class SectionsTableSeeder extends Seeder
 
         $section = new Section();
         $section->key = 'social_plus';
-        $section->value = 'https://plus.google.com/+KesatriaKeyboard';
+        $section->value = 'https://plus.google.com/b/118053890040113571800/';
         $section->save();
     }
 }
