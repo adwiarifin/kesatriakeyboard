@@ -24,9 +24,9 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <h5>Tags:</h5>
-                                            <span class="label label-default">Motivational</span>
+                                            <!--span class="label label-default">Motivational</span>
                                             <span class="label label-default">Newsletter</span>
-                                            <span class="label label-warning">Trending</span>
+                                            <span class="label label-warning">Trending</span-->
                                         </div>
                                         <div class="col-md-4 ml-auto">
                                             <div class="sharing">
