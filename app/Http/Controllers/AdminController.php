@@ -75,7 +75,6 @@ class AdminController extends Controller
         $mostVisitedPages = Analytics::fetchMostVisitedPages($period);
         $topReferrers = Analytics::fetchTopReferrers($period);
         $topBrowsers = Analytics::fetchTopBrowsers($period);
-        $color = ['info', 'danger', 'warning', 'purple', 'success', 'primary'];
         //return $period;
 
 
@@ -101,7 +100,7 @@ class AdminController extends Controller
             ];
         });
 
-        return view('admin.dashboard.index', compact('vpUnique', 'userTypes', 'mostVisitedPages', 'topReferrers', 'topBrowsers', 'color', 'vectorMap', 'topOperatingSystems'));
+        return view('admin.dashboard.index', compact('vpUnique', 'userTypes', 'mostVisitedPages', 'topReferrers', 'topBrowsers', 'vectorMap', 'topOperatingSystems'));
     }
 
     public function default()

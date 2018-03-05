@@ -853,7 +853,63 @@
   }
 }
 
+/* Legend's Chartist Color */
+.text-series-a {
+    color: #1DC7EA;
+}
 
-.text-purple, .text-purple:hover {
-    color: #9368E9 !important;
+.text-series-b {
+    color: #FB404B;
+}
+
+.text-series-c {
+    color: #FFA534;
+}
+
+.text-series-d {
+    color: #9368E9;
+}
+
+.text-series-e {
+    color: #87CB16;
+}
+
+.text-series-f {
+    color: #1F77D0;
+}
+
+.text-series-g {
+    color: #5e5e5e;
+}
+
+.text-series-h {
+    color: #dd4b39;
+}
+
+.text-series-i {
+    color: #35465c;
+}
+
+.text-series-j {
+    color: #e52d27;
+}
+
+.text-series-k {
+    color: #55acee;
+}
+
+.text-series-l {
+    color: #cc2127;
+}
+
+.text-series-m {
+    color: #1769ff;
+}
+
+.text-series-n {
+    color: #6188e2;
+}
+
+.text-series-o {
+    color: #a748ca;
 }

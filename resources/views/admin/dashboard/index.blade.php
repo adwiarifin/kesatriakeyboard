@@ -45,7 +45,7 @@
                                     <div class="legend">
                                         <?php $i = 0; ?>
                                         @foreach($userTypes->pluck('type') as $type)
-                                        <i class="fa fa-circle text-{{ $color[$i++] }}"></i> {{ $type }}
+                                        <i class="fa fa-circle text-series-{{ chr(97 + $i++) }}"></i> {{ $type }}
                                         @endforeach
                                     </div>
                                 </div>
@@ -64,7 +64,7 @@
                                     <div class="legend">
                                         <?php $i = 0; ?>
                                         @foreach($topBrowsers->pluck('browser') as $browser)
-                                        <i class="fa fa-circle text-{{ $color[$i++] }}"></i> {{ $browser }}
+                                        <i class="fa fa-circle text-series-{{ chr(97 + $i++) }}"></i> {{ $browser }}
                                         @endforeach
                                     </div>
                                 </div>
@@ -83,7 +83,7 @@
                                     <div class="legend">
                                         <?php $i = 0; ?>
                                         @foreach($topOperatingSystems->pluck('os') as $os)
-                                        <i class="fa fa-circle text-{{ $color[$i++] }}"></i> {{ $os }}
+                                        <i class="fa fa-circle text-series-{{ chr(97 + $i++) }}"></i> {{ $os }}
                                         @endforeach
                                     </div>
                                 </div>
