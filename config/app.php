@@ -163,12 +163,13 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Spatie\Analytics\AnalyticsServiceProvider::class,
-        JD\Cloudder\CloudderServiceProvider::class,
 
         /*
          * Package Service Providers...
          */
+        Spatie\Analytics\AnalyticsServiceProvider::class,
+        JD\Cloudder\CloudderServiceProvider::class,
+        Collective\Remote\RemoteServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -227,8 +228,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
         'Analytics' => Spatie\Analytics\AnalyticsFacade::class,
         'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
+        'SSH' => Collective\Remote\RemoteFacade::class,
 
     ],
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "487141f2ff636a74e0388c1775e0cfc1",
+    "content-hash": "994e729be5ed5aadb1c42eb0fd60cc94",
     "packages": [
         {
             "name": "cloudinary/cloudinary_php",
@@ -1075,6 +1075,65 @@
                 "psysh"
             ],
             "time": "2017-12-18T16:25:11+00:00"
+        },
+        {
+            "name": "laravelcollective/remote",
+            "version": "v5.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/remote.git",
+                "reference": "2d6d22a170bc125bf219ee2f2d5ae13b5a3b7865"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/remote/zipball/2d6d22a170bc125bf219ee2f2d5ae13b5a3b7865",
+                "reference": "2d6d22a170bc125bf219ee2f2d5ae13b5a3b7865",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/filesystem": "5.5.*",
+                "illuminate/support": "5.5.*",
+                "php": ">=7.0.0",
+                "phpseclib/phpseclib": "^2.0"
+            },
+            "require-dev": {
+                "illuminate/console": "5.5.*",
+                "mockery/mockery": "~0.9.4",
+                "phpunit/phpunit": "~5.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Collective\\Remote\\RemoteServiceProvider"
+                    ],
+                    "aliases": {
+                        "SSH": "Collective\\Remote\\RemoteFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Remote\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tom Shafer",
+                    "email": "tj@tjshafer.com"
+                },
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "description": "Remote for The Laravel Framework.",
+            "homepage": "http://laravelcollective.com",
+            "time": "2017-08-31T15:12:20+00:00"
         },
         {
             "name": "league/flysystem",
