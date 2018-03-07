@@ -26,6 +26,18 @@ class TerminalController extends Controller
         return view('admin.terminal.index', compact('output'));
     }
 
+    public function save()
+    {
+        $now = \Carbon\Carbon::now();
+        $this->runCommands([
+            'cd kesatriakeyboard',
+            'git commit -a -m "save from server: ' . $now->toDayDateTimeString() . '"',
+        ]);
+
+        $output = nl2br($this->output);
+        return view('admin.terminal.index', compact('output'));
+    }
+
     public function update()
     {
         $this->runCommands([

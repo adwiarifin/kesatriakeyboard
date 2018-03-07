@@ -11,8 +11,9 @@
                                 <p class="card-category">Please select appropriate command</p>
                             </div>
                             <div class="card-body">
-                                <a href="{{ url('/admin/terminal/deploy') }}"><button class="btn btn-info btn-fill"><i class="nc-icon nc-spaceship"></i> Deploy</button></a>
-                                <a href="{{ url('/admin/terminal/update') }}"><button class="btn btn-info btn-fill"><i class="nc-icon nc-refresh-69"></i> Composer Update</button></a>
+                                <a href="{{ url('/admin/terminal/deploy') }}"><button class="btn btn-info btn-fill"><i class="nc-icon nc-spaceship"></i> deploy</button></a>
+                                <a href="{{ url('/admin/terminal/save') }}"><button class="btn btn-info btn-fill"><i class="nc-icon nc-book-bookmark"></i> save</button></a>
+                                <a href="{{ url('/admin/terminal/update') }}"><button class="btn btn-info btn-fill"><i class="nc-icon nc-refresh-69"></i> update</button></a>
                             </div>
                         </div>
                     </div>

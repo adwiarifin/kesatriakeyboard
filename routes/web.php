@@ -62,6 +62,7 @@ Route::prefix('/admin')->group(function() {
 
 		Route::get('/terminal', 'TerminalController@index');
 		Route::get('/terminal/deploy', 'TerminalController@deploy');
+		Route::get('/terminal/save', 'TerminalController@save');
 		Route::get('/terminal/update', 'TerminalController@update');
 	});
 });
