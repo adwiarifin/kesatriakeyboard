@@ -41,6 +41,12 @@
                             <p>Posts</p>
                         </a>
                     </li>
+                    <li class="nav-item {!! (str_contains(url()->current(), '/terminal')) ? 'active' : '' !!}">
+                        <a class="nav-link" href="{{ url('/admin/terminal') }}">
+                            <i class="nc-icon nc-tv-2"></i>
+                            <p>Terminal</p>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

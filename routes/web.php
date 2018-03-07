@@ -59,6 +59,10 @@ Route::prefix('/admin')->group(function() {
 		Route::get('/posts/{post}', 'PostController@edit');
 		Route::patch('/posts/{post}', 'PostController@update');
 		Route::delete('/posts/{post}', 'PostController@destroy');
+
+		Route::get('/terminal', 'TerminalController@index');
+		Route::get('/terminal/deploy', 'TerminalController@deploy');
+		Route::get('/terminal/update', 'TerminalController@update');
 	});
 });
 
