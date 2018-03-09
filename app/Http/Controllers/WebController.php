@@ -7,7 +7,7 @@ use App\BlogPost as Post;
 use App\Work;
 use App\Message;
 
-class FrontController extends Controller
+class WebController extends Controller
 {
     
     public function index()

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use Mail;
 use App\Message;
 use App\Mail\MessageReply;
-use Mail;
+use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {

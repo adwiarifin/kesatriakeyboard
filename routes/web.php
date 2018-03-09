@@ -13,12 +13,12 @@
 
 use Illuminate\Http\Request;
 
-Route::get('/', 'FrontController@index');
-Route::get('/blog', 'FrontController@blogList');
-Route::get('/blog/{slug}', 'FrontController@blog');
-Route::get('/portfolio', 'FrontController@portfolioList');
-Route::get('/portfolio/{slug}', 'FrontController@portfolio');
-Route::post('/message', 'FrontController@postMessage');
+Route::get('/', 'WebController@index');
+Route::get('/blog', 'WebController@blogList');
+Route::get('/blog/{slug}', 'WebController@blog');
+Route::get('/portfolio', 'WebController@portfolioList');
+Route::get('/portfolio/{slug}', 'WebController@portfolio');
+Route::post('/message', 'WebController@postMessage');
 
 /////////// AUTH /////////////////
 

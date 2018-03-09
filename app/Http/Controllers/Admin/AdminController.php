@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use Analytics;
 use App\Social;
 use App\Profile;
-use Analytics;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Spatie\Analytics\Period;
 
 class AdminController extends Controller

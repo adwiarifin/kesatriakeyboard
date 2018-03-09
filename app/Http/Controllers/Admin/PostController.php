@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\BlogPost as Post;
+use App\BlogCategory as Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use JD\Cloudder\Facades\Cloudder;
-use App\BlogPost as Post;
-use App\BlogCategory as Category;
 
 class PostController extends Controller
 {
