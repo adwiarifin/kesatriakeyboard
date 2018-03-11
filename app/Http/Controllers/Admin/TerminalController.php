@@ -19,7 +19,8 @@ class TerminalController extends Controller
     {
         $this->runCommands([
             'cd kesatriakeyboard',
-            'git pull origin master'
+            'git pull origin master',
+            'composer install'
         ]);
 
         $output = nl2br($this->output);
