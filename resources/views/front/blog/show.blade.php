@@ -31,7 +31,8 @@
                                         <div class="col-md-4 ml-auto">
                                             <div class="sharing">
                                                 <h5>Spread the word</h5>
-                                                <button class="btn btn-just-icon btn-twitter">
+                                                <div class="sharethis-inline-share-buttons"></div>
+                                                <!--button class="btn btn-just-icon btn-twitter">
                                                     <i class="fa fa-twitter"></i>
                                                 </button>
                                                 <button class="btn btn-just-icon btn-facebook">
@@ -39,7 +40,7 @@
                                                 </button>
                                                 <button class="btn btn-just-icon btn-google">
                                                     <i class="fa fa-google"> </i>
-                                                </button>
+                                                </button-->
                                             </div>
                                         </div>
                                     </div>
@@ -52,14 +53,11 @@
                                         <div class="media">
                                             <a class="pull-left" href="#paper-kit">
                                                 <div class="avatar big-avatar">
-                                                    <img class="media-object" alt="64x64" src="{{ !is_null($post->user->profile) && !is_null($post->user->profile->image) ? Storage::url($post->user->profile->image) : url('/img/placeholder.jpg') }}">
+                                                    <img class="media-object" alt="64x64" src="{{ Gravatar::src($post->user->email) }}">
                                                 </div>
                                             </a>
                                             <div class="media-body">
                                                 <h4 class="media-heading">{{ $post->user->name }}</h4>
-                                                <div class="pull-right">
-                                                    <a href="#paper-kit" class="btn btn-default btn-round "> <i class="fa fa-reply"></i> Follow</a>
-                                                </div>
                                                 {!! !is_null($post->user->profile) ? $post->user->profile->bio : '' !!}
                                                 <p>
                                                     @foreach($post->user->socials as $social)
@@ -75,4 +73,8 @@
                     </div>
                 </div>
             </div>
+@endsection
+
+@section('addon_script')
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=59167a26ba33c30011148cd3&product=inline-share-buttons"></script>
 @endsection
