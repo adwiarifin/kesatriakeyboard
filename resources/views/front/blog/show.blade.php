@@ -69,6 +69,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="container">
+                                <div id="disqus_thread"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -76,5 +79,20 @@
 @endsection
 
 @section('addon_script')
+@if(App::environment() === 'production')
 <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=59167a26ba33c30011148cd3&product=inline-share-buttons"></script>
+<script>
+var disqus_config = function () {
+this.page.url = '{{ url()->current() }}';
+this.page.identifier = 'blog-{{ $post->slug }}';
+};
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://kesatriakeyboard.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+@endif
 @endsection
