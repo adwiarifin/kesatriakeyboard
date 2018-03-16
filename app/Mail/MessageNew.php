@@ -2,27 +2,31 @@
 
 namespace App\Mail;
 
+use App\Message;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class MessageReply extends Mailable
+class MessageNew extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $name;
-    public $reply;
+    public $email;
+    public $message;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name, $reply)
+    public function __construct(Message $message)
     {
-        $this->name = $name;
-        $this->reply = $reply;
+
+        $this->name = $message->name;
+        $this->email = $message->email;
+        $this->message = $message->content;
     }
 
     /**
@@ -32,6 +36,8 @@ class MessageReply extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mail.reply');
+        return $this->to('adwi@kesatriakeyboard.com')
+            ->replyTo($this->email)
+            ->markdown('mail.new');
     }
 }

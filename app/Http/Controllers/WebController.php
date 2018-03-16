@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use Mail;
 use Illuminate\Http\Request;
 use App\BlogPost as Post;
 use App\Work;
 use App\Message;
+use App\Mail\MessageNew;
 
 class WebController extends Controller
 {
     
     public function index()
     {
-    	$posts = Post::all();
-        $posts = $posts->count() > 3 ? $posts->random(3) : $posts;
+    	$posts = Post::latest()->limit(3)->get();
 
         $works = Work::all();
         $works = $works->count() > 3 ? $works->random(3) : $works;
@@ -59,6 +60,10 @@ class WebController extends Controller
             $message->email = $request->email;
             $message->content = $request->content;
             $message->save();
+
+            // send mail
+            $mail = new MessageNew($message);
+            Mail::queue($mail);
 
             $result['code'] = 1;
             $result['message'] = 'Message has been sent';
