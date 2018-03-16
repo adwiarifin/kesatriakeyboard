@@ -38,4 +38,16 @@ class MessageController extends Controller
 
         return redirect('/admin/messages');
     }
+
+    public function destroy(Message $message)
+    {
+        // remove in database
+        $message->delete();
+
+        // info message
+        session()->flash('message', 'Message has been deleted');
+
+        // redirect
+        return redirect('/admin/messages');
+    }
 }

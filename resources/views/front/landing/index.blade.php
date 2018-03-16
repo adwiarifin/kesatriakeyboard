@@ -42,6 +42,9 @@
           	$("#response").html('');
           	$("#response").removeClass("alert alert-info alert-danger");
           }, 5000);
+        },
+        error:function(data){
+          console.log(data.responseText);
         }
       });
     });
