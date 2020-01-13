@@ -17,7 +17,7 @@ before_install:
 - chmod 600 ./deploy_key
 - echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 - ssh-add ./deploy_key
-- ssh -i ./deploy_key kesatria@hamzah.hideserver.net pwd
+- ssh -p 34512 -i ./deploy_key kesatria@hamzah.hideserver.net pwd
 - mysql -e 'create database homestead_test;'
 
 script:
