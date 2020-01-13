@@ -2,27 +2,41 @@ language: php
 php:
 - 7.2
 
-before_script:
-- cp .env.testing .env
-- composer self-update
-- composer install --no-interaction
-- php artisan key:generate
-- php artisan migrate:refresh
-- php artisan db:seed
-
-before_install:
-- openssl aes-256-cbc -K $encrypted_48a5fd0d38f7_key -iv $encrypted_48a5fd0d38f7_iv
-  -in deploy_key.enc -out ./deploy_key -d
-- eval "$(ssh-agent -s)"
-- chmod 600 ./deploy_key
-- echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-- echo -e "Host hamzah.hideserver.net\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-- ssh-add ./deploy_key
-- ssh -p 34512 -i ./deploy_key kesatria@hamzah.hideserver.net pwd
-- mysql -e 'create database homestead_test;'
-
-script:
-- phpunit
-
 services:
 - mysql
+
+
+
+stages:
+  - build
+  - deploy
+
+jobs:
+  include:
+  - stage: build
+    before_install:
+    - mysql -e 'create database homestead_test;'
+    before_script:
+    - cp .env.testing .env
+    - composer self-update
+    - composer install --no-interaction
+    - php artisan key:generate
+    - php artisan migrate:refresh
+    - php artisan db:seed
+    script:
+    - phpunit
+  - stage: deploy
+    before_install:
+    - openssl aes-256-cbc -K $encrypted_48a5fd0d38f7_key -iv $encrypted_48a5fd0d38f7_iv
+      -in deploy_key.enc -out ./deploy_key -d
+    - eval "$(ssh-agent -s)"
+    - chmod 600 ./deploy_key
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+    - ssh-add ./deploy_key
+    - ssh -p 34512 -i ./deploy_key kesatria@hamzah.hideserver.net pwd
+    deploy:
+    - provider: script
+      skip_cleanup: true
+      script: ./scripts/deploy.sh
+      on:
+        branch: master
