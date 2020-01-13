@@ -2,6 +2,11 @@ language: php
 php:
 - 7.2
 
+addons:
+  ssh_known_hosts:
+  - git.example.com
+  - hamzah.hideserver.net
+
 before_script:
 - cp .env.testing .env
 - composer self-update
