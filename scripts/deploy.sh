@@ -4,5 +4,5 @@ ssh -p 34512 -i ./deploy_key kesatria@hamzah.hideserver.net \
 && cd /home/kesatria/kesatriakeyboard \
 && git checkout master \
 && git pull \
-&& composer install
+&& composer install \
 && echo "kesatriakeyboard deployed successfully"
