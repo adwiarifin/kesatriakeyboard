@@ -2,11 +2,6 @@ language: php
 php:
 - 7.2
 
-addons:
-  ssh_known_hosts:
-  - git.example.com
-  - hamzah.hideserver.net
-
 before_script:
 - cp .env.testing .env
 - composer self-update
@@ -21,6 +16,7 @@ before_install:
 - eval "$(ssh-agent -s)"
 - chmod 600 ./deploy_key
 - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- echo -e "Host hamzah.hideserver.net\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 - ssh-add ./deploy_key
 - ssh -p 34512 -i ./deploy_key kesatria@hamzah.hideserver.net pwd
 - mysql -e 'create database homestead_test;'
