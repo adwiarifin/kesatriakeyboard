@@ -47,7 +47,7 @@
                             <p>Terminal</p>
                         </a>
                     </li>
-                    <li class="nav-item {!! (str_contains(url()->current(), '/terminal')) ? 'active' : '' !!}">
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ url('/telescope') }}">
                             <i class="nc-icon nc-sound-wave"></i>
                             <p>Telescope</p>
