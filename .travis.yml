@@ -8,6 +8,10 @@ php:
 services:
   - mysql
 
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+
 before_install:
   - openssl aes-256-cbc -K $encrypted_48a5fd0d38f7_key -iv $encrypted_48a5fd0d38f7_iv
     -in deploy_key.enc -out ./deploy_key -d
