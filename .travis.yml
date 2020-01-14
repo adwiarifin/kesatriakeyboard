@@ -1,9 +1,12 @@
+os:
+  - linux
+
 language: php
 php:
-- 7.2
+  - 7.2
 
 services:
-- mysql
+  - mysql
 
 before_install:
   - openssl aes-256-cbc -K $encrypted_48a5fd0d38f7_key -iv $encrypted_48a5fd0d38f7_iv
@@ -16,15 +19,24 @@ before_install:
   - mysql -e 'create database homestead_test;'
 
 before_script:
-  - cp .env.testing .env
   - composer self-update
   - composer install --no-interaction
+  - cp .env.testing .env
+  - pear install pear/PHP_CodeSniffer
+  - phpenv rehash
+  - nvm install 7.7.1
+  - npm install npm@latest -g
+  - npm install -g jshint
+  - npm install
   - php artisan key:generate
   - php artisan migrate:refresh
   - php artisan db:seed
 
 script:
-  - phpunit
+  - phpunit --coverage-text
+  - phpcs --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers
+  - npm run production
+  - jshint resources/assets/js/modules/*
 
 deploy:
   - provider: script
