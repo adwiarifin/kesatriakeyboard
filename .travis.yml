@@ -28,7 +28,7 @@ before_script:
   - cp .env.testing .env
   - pear install pear/PHP_CodeSniffer
   - phpenv rehash
-  - nvm install 12.4.1
+  - nvm install --lts
   - npm install npm@latest -g
   - npm install -g jshint
   - npm install
