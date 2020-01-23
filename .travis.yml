@@ -39,7 +39,7 @@ before_script:
 
 script:
   - phpunit --coverage-text
-  - phpcs --standard=PSR2 --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers --report=summary
+  - phpcs --standard=PSR2 --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers
   - npm run production
   - jshint resources/assets/js/modules/*
 
