@@ -35,10 +35,11 @@ before_script:
   - php artisan key:generate
   - php artisan migrate:refresh
   - php artisan db:seed
+  - phpcs -i
 
 script:
   - phpunit --coverage-text
-  - phpcs --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers
+  - phpcs --standard=PSR2 --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers --report=summary
   - npm run production
   - jshint resources/assets/js/modules/*
 
