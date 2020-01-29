@@ -23,7 +23,6 @@ class BlogPostsTableSeeder extends Seeder
         $category->name = 'Cat';
         $category->save();
 
-        /***
         $post = new BLogPost();
         $post->title = "Lorem Ipsum";
         $post->slug = str_slug("Lorem Ipsum");
@@ -43,6 +42,5 @@ class BlogPostsTableSeeder extends Seeder
         $post->category()->associate($category);
         $post->user()->associate($user);
         $post->save();
-        */
     }
 }
