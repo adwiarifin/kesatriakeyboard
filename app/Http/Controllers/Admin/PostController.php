@@ -51,7 +51,7 @@ class PostController extends Controller
 
         // save image
         $file = $request->file('image');
-        if(!is_null($file)){
+        if (!is_null($file)) {
             Cloudder::upload($file->getRealPath(), null, [], ['post']);
             $post->image = Cloudder::getPublicId();
             $post->update();
@@ -98,7 +98,7 @@ class PostController extends Controller
 
         // update image
         $file = $request->file('image');
-        if(!is_null($file)){
+        if (!is_null($file)) {
             Cloudder::destroyImage($post->image);
             Cloudder::delete($post->image);
 

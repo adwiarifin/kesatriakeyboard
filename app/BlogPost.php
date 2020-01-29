@@ -26,8 +26,7 @@ class BlogPost extends Model
 
     public function getImageUrl()
     {
-        if(\Request::secure())
-        {
+        if (\Request::secure()) {
             return \Cloudder::secureShow($this->image);
         }
         return \Cloudder::show($this->image);

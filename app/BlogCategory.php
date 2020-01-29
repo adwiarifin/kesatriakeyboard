@@ -9,6 +9,6 @@ class BlogCategory extends Model
     
     public function post()
     {
-    	return $this->hasMany('App\BlogPost');
+        return $this->hasMany('App\BlogPost');
     }
 }

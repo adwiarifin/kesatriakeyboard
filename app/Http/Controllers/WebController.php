@@ -103,7 +103,7 @@ class WebController extends Controller
             $result['code'] = 1;
             $result['message'] = 'Message has been sent';
         } else {
-            $result['message'] = 
+            $result['message'] =
                 'Please check i am not robot, to ensure that u are human!';
             return $result;
         }

@@ -50,9 +50,10 @@ class TerminalController extends Controller
         return view('admin.terminal.index', compact('output'));
     }
 
-    private function runCommands(array $commands){
+    private function runCommands(array $commands)
+    {
         $this->output = '';
-        SSH::run($commands, function($line){
+        SSH::run($commands, function ($line) {
             $this->output .= $line.PHP_EOL;
         });
     }

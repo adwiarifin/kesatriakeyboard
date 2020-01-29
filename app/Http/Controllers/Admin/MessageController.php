@@ -11,8 +11,8 @@ class MessageController extends Controller
 {
     public function index()
     {
-    	$messages = Message::latest()->paginate(10);
-    	return view('admin.message.index', compact('messages'));
+        $messages = Message::latest()->paginate(10);
+        return view('admin.message.index', compact('messages'));
     }
 
     public function show(Message $message)

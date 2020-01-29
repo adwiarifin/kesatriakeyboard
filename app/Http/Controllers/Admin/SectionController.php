@@ -7,24 +7,24 @@ use Illuminate\Http\Request;
 
 class SectionController extends Controller
 {
-    public function index() 
+    public function index()
     {
-    	$sections = Section::all();
-    	return view('admin.section.index', compact('sections'));
+        $sections = Section::all();
+        return view('admin.section.index', compact('sections'));
     }
 
-    public function edit(Section $section) 
+    public function edit(Section $section)
     {
-    	return view('admin.section.edit', compact('section'));
+        return view('admin.section.edit', compact('section'));
     }
 
-    public function update(Request $request, Section $section) 
+    public function update(Request $request, Section $section)
     {
         // save string data
-    	$section->value = $request->value;
-    	$section->update();
+        $section->value = $request->value;
+        $section->update();
 
-    	session()->flash('message', 'Section '.$section->key.' has been updated');
+        session()->flash('message', 'Section '.$section->key.' has been updated');
 
         return redirect('/admin/sections');
     }

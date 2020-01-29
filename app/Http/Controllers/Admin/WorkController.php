@@ -44,7 +44,7 @@ class WorkController extends Controller
 
         // save image
         $file = $request->file('image');
-        if(!is_null($file)){
+        if (!is_null($file)) {
             Cloudder::upload($file->getRealPath(), null, [], ['work']);
             $work->image = Cloudder::getPublicId();
             $work->update();
@@ -77,7 +77,7 @@ class WorkController extends Controller
         DB::beginTransaction();
 
         // update string
-        if($work->name !== $request->name){
+        if ($work->name !== $request->name) {
             $work->name = $request->name;
             $work->slug = str_slug($request->name);
         }
@@ -88,7 +88,7 @@ class WorkController extends Controller
 
         // update image
         $file = $request->file('image');
-        if(!is_null($file)){
+        if (!is_null($file)) {
             Cloudder::destroyImage($work->image);
             Cloudder::delete($work->image);
 

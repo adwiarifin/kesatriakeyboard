@@ -33,7 +33,7 @@ class AdminController extends Controller
         $user->save();
 
         // update profile
-        if(is_null($user->profile)){
+        if (is_null($user->profile)) {
             $profile = new Profile();
             $profile->user_id = $user->id;
         } else {
@@ -45,7 +45,7 @@ class AdminController extends Controller
 
         // update image
         $file = $request->file('image');
-        if(!is_null($file)){
+        if (!is_null($file)) {
             $path = $file->store('public/files');
             $profile->image = $path;
             $profile->save();
@@ -53,8 +53,8 @@ class AdminController extends Controller
 
         // update social
         $sid = array();
-        foreach($request->socials as $id => $link){
-            if(!empty($link)){
+        foreach ($request->socials as $id => $link) {
+            if (!empty($link)) {
                 $sid[$id] = array('link' => $link);
             }
         }
