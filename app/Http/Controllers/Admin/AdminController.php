@@ -78,7 +78,10 @@ class AdminController extends Controller
         //return $period;
 
 
-        $response = Analytics::performQuery($period, 'ga:sessions', ['dimensions' => 'ga:countryIsoCode,ga:country', 'sort' => '-ga:sessions']);
+        $response = Analytics::performQuery($period, 'ga:sessions', [
+            'dimensions' => 'ga:countryIsoCode,ga:country',
+            'sort' => '-ga:sessions'
+        ]);
         $topCountryVisitor = collect($response['rows'] ?? [])->map(function (array $row) {
             return [
                 'iso_code' => $row[0],
@@ -92,7 +95,10 @@ class AdminController extends Controller
         $vectorMap = $iso_code->combine($sessions);
         //dd($iso_code->combine($sessions)->toJson());
 
-        $response = Analytics::performQuery($period, 'ga:sessions', ['dimensions' => 'ga:operatingSystem', 'sort' => '-ga:sessions']);
+        $response = Analytics::performQuery($period, 'ga:sessions', [
+            'dimensions' => 'ga:operatingSystem',
+            'sort' => '-ga:sessions'
+        ]);
         $topOperatingSystems = collect($response['rows'] ?? [])->map(function (array $row) {
             return [
                 'os' => $row[0],
@@ -100,7 +106,18 @@ class AdminController extends Controller
             ];
         });
 
-        return view('admin.dashboard.index', compact('vpUnique', 'userTypes', 'mostVisitedPages', 'topReferrers', 'topBrowsers', 'vectorMap', 'topOperatingSystems'));
+        return view(
+            'admin.dashboard.index',
+            compact(
+                'vpUnique',
+                'userTypes',
+                'mostVisitedPages',
+                'topReferrers',
+                'topBrowsers',
+                'vectorMap',
+                'topOperatingSystems'
+            )
+        );
     }
 
     public function default()
