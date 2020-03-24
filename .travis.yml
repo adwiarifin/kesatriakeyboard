@@ -41,7 +41,10 @@ script:
   - phpunit --coverage-text
   - phpcs --standard=PSR2 --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers
   - npm run production
-  - jshint resources/assets/js/modules/*
+  - jshint resources/assets/js/components/*
+
+after_success:
+  - bash < (curl -s https://codecov.io/bash)
 
 deploy:
   - provider: script
